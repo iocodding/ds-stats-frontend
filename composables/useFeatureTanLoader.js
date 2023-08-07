@@ -7,16 +7,17 @@ export const useFeatureTanLoader = () => {
     queryFn: () =>
       axios.call("get", "http://localhost:1337/api/features/2?populate=*"),
     select: (response) => {
-      const feature = response.data.data.attributes;
+      console.log({ response })
+      const feature = { ...response };
 
-      feature.feature_entities = feature.feature_entities.data.map((entry) => {
+      feature.data.data.attributes.feature_entities = feature.data.data.attributes.feature_entities.data.map((entry) => {
         return {
           ...entry.attributes,
           id: entry.id,
         };
       });
 
-      return feature;
+      return feature
     },
   });
 

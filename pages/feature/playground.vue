@@ -1,5 +1,5 @@
 <script setup>
-const { data: feature } = useFeatureTanLoader();
+const state = useFeatureTanLoader();
 const { createFeatureEntity, deleteFeatureEntity } = useFeatureTanActions();
 
 const { mutate: createEntityMutation } = createFeatureEntity();
@@ -27,6 +27,11 @@ const columns = [
 </script>
 <template>
   <div>
+    <WidgetTanLoadingState :state="state">
+      <template #skeleton>loading</template>
+      <template #result="{ data }"> {{ data }}</template>
+    </WidgetTanLoadingState>
+    <!-- {{ feature?.feature_entities.map((feat) => feat.name) }}
     <DssTable
       title="Components"
       :columns="columns"
@@ -39,6 +44,7 @@ const columns = [
       </template>
     </DssTable>
 
+     -->
     <DssButton text="Add new" class="mt-2" @click="addFeature" />
   </div>
 </template>
