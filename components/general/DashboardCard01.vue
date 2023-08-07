@@ -33,7 +33,7 @@
 
 <script>
 import { ref } from "vue";
-import { tailwindConfig, hexToRGB } from "../utils/Utils";
+import { tailwindConfig, hexToRGB } from "../../utils/Utils";
 
 export default {
   name: "DashboardCard01",
