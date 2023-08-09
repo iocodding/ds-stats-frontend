@@ -56,7 +56,7 @@
               searchId="search"
               :modalOpen="searchModalOpen"
               @open-modal="searchModalOpen = true"
-              @close-modal="searchModalOpen = false"
+              @close="searchModalOpen = false"
             />
           </div>
           <ThemeToggle />

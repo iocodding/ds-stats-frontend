@@ -1,4 +1,4 @@
 <script setup></script>
 <template>
-  <FeaturePage />
+  <DssInput placeholder="Search..." />
 </template>

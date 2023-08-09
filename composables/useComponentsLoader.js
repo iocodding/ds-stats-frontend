@@ -1,22 +1,21 @@
 import { useQuery } from "@tanstack/vue-query";
 import axios from "axios";
 
-export const useFeatureTanLoader = () => {
+export const useComponentsLoader = () => {
   const state = useQuery({
-    queryKey: ["feature"],
+    queryKey: ["components"],
     queryFn: () =>
-      axios.call("get", "http://localhost:1337/api/features/2?populate=*"),
-    select: (response) => {
-      const feature = { ...response };
+      axios.call("get", "http://localhost:1337/api/components"),
+    select: (res) => {
 
-      feature.data.data.attributes.feature_entities = feature.data.data.attributes.feature_entities.data.map((entry) => {
+      const normalize =  res.data.data.map((entry) => {
         return {
           ...entry.attributes,
           id: entry.id,
         };
       });
-
-      return feature
+      
+      return normalize;
     },
   });
 

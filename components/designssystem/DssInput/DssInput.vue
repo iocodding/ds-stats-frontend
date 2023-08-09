@@ -8,6 +8,18 @@ const props = defineProps({
     type: Boolean,
     default: null,
   },
+  placeholder: {
+    type: String,
+    default: null,
+  },
+  errorMessage: {
+    type: String,
+    default: null,
+  },
+  label: {
+    type: String,
+    default: "",
+  },
 });
 
 const emit = defineEmits(["update:modelValue", "keyup:escape", "keyup:enter"]);
@@ -32,12 +44,22 @@ function keyup(e) {
 }
 </script>
 <template>
-  <input
-    ref="dssinputRef"
-    class="form-input w-full !bg-slate-800 !ring-slate-800"
-    :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
-    @keyup="keyup"
-    type="text"
-  />
+  <div>
+    <label v-if="label" class="block text-sm font-medium mb-1">{{
+      label
+    }}</label>
+    <input
+      ref="dssinputRef"
+      class="form-input h-10 w-full"
+      :class="errorMessage && '!border-rose-500'"
+      :placeholder="placeholder"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+      @keyup="keyup"
+      type="text"
+    />
+    <div v-if="errorMessage" class="text-xs mt-1 text-rose-500">
+      {{ errorMessage }}
+    </div>
+  </div>
 </template>
