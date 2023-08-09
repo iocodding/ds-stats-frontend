@@ -1,5 +1,12 @@
 <script setup>
 const toggle1 = ref("On");
+
+const props = defineProps({
+  label: {
+    type: String,
+    default: null,
+  },
+});
 </script>
 
 <template>
@@ -18,8 +25,8 @@ const toggle1 = ref("On");
         <span class="sr-only">Toggle</span>
       </label>
     </div>
-    <div class="text-sm text-slate-400 dark:text-slate-500 italic ml-2">
-      Documented
+    <div class="text-sm ml-2">
+      {{ label }}
     </div>
   </div>
 </template>

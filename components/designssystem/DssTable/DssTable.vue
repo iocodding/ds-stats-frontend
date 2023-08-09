@@ -12,6 +12,10 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  activeId: {
+    type: Number,
+    default: 0,
+  },
 });
 </script>
 <template>
@@ -28,8 +32,11 @@ const props = defineProps({
         class="table-auto w-full dark:text-slate-300 divide-y divide-slate-200 dark:divide-slate-700"
       >
         <DssTableHead :columns="columns" />
-        <tbody class="text-sm">
-          <tr v-for="item in items">
+        <tbody class="text-sm divide-slate-200 dark:divide-slate-700 divide-y">
+          <tr
+            v-for="item in items"
+            :class="activeId === item.id && 'bg-slate-900/30'"
+          >
             <td
               v-for="column in columns"
               class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap"

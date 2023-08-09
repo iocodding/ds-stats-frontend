@@ -8,7 +8,6 @@ export const useFeaturesLoader = () => {
     function normalize(data, optimistic) {
         if (data) {
           const feature = JSON.parse(data).data.attributes;
-          console.log(optimistic)
           if(optimistic.length) {
             return optimistic
           }

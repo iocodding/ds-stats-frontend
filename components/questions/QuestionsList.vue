@@ -26,9 +26,6 @@ function moveCardInSameColumn(dropResult) {
   //   const startPositionIndex = sortedItems.value.indexOf(addedItem);
   //   const movedBefore = sortedItems.value[startPositionIndex + 1];
 
-  console.log("Removed:", removedItem);
-  console.log("Added:", addedItem);
-
   emit("onCardDrop", removedItem, addedItem);
 }
 

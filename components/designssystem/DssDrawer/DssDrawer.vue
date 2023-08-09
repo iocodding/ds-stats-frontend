@@ -4,6 +4,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  title: {
+    type: String,
+    default: "",
+  },
 });
 </script>
 
@@ -14,7 +18,7 @@ const props = defineProps({
     :class="open ? 'translate-x-0' : 'translate-x-full'"
   >
     <div
-      class="sticky top-16 bg-slate-50 dark:bg-gradient-to-b dark:from-slate-800 dark:to-slate-900 overflow-x-hidden overflow-y-auto no-scrollbar shrink-0 border-l border-slate-200 dark:border-slate-700 w-full sm:w-[390px] h-[calc(100dvh-64px)]"
+      class="sticky top-16 bg-slate-50 dark:bg-gradient-to-b dark:from-slate-800 dark:to-slate-900 overflow-x-hidden overflow-y-auto no-scrollbar shrink-0 border-l border-slate-200 dark:border-slate-700 w-full sm:w-[690px] h-[calc(100dvh-64px)]"
     >
       <button
         ref="closeBtn"
@@ -37,7 +41,7 @@ const props = defineProps({
           <div
             class="text-slate-800 dark:text-slate-100 font-semibold text-center mb-1"
           >
-            Bank Transfer
+            {{ title }}
           </div>
 
           <!-- Notes -->

@@ -3,7 +3,7 @@
     <label for="action-search" class="sr-only">Search</label>
     <input
       id="action-search"
-      class="form-input pl-9 bg-white dark:bg-slate-800"
+      class="form-input pl-9 bg-white dark:bg-slate-800 h-10"
       type="search"
       :placeholder="placeholder"
     />

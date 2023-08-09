@@ -31,7 +31,7 @@
     >
       <div
         ref="modalContent"
-        class="bg-white dark:bg-slate-800 rounded shadow-lg overflow-auto max-w-lg w-full max-h-full"
+        class="bg-white dark:bg-slate-800 rounded shadow-lg overflow-auto max-w-lg w-full max-h-full inline-table"
       >
         <!-- Modal header -->
         <div class="px-5 py-3 border-b border-slate-200 dark:border-slate-700">

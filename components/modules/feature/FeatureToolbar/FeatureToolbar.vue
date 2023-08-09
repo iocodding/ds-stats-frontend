@@ -12,7 +12,7 @@
     <div
       class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2"
     >
-      <SearchForm placeholder="Search by invoice ID…" />
+      <DssInput placeholder="Search by invoice ID…" />
       <WidgetFilterDropdown />
       <DssButton @click="$emit('onCreate')" text="Create Component" />
     </div>

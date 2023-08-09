@@ -4,6 +4,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  selected: {
+    type: Object,
+    default: null,
+  },
 });
 
 const emit = defineEmits(["close"]);
@@ -14,6 +18,6 @@ const emit = defineEmits(["close"]);
     title="Create Component"
     @close="emit('close')"
   >
-    <FeatureAddEditDialogContent @close="emit('close')" />
+    <FeatureAddEditDialogPanel @close="emit('close')" :selected="selected" />
   </WidgetDialog>
 </template>

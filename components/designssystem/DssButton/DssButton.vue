@@ -56,8 +56,6 @@ const button = tv({
 const classes = computed(() =>
   button({ variant: props.variant, size: props.size, rounded: props.rounded })
 );
-
-console.log(classes.value);
 </script>
 <template>
   <button class="btn" :class="classes">

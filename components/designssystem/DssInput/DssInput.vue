@@ -50,7 +50,7 @@ function keyup(e) {
     }}</label>
     <input
       ref="dssinputRef"
-      class="form-input h-10 w-full"
+      class="form-input h-10 w-full bg-white dark:bg-slate-800"
       :class="errorMessage && '!border-rose-500'"
       :placeholder="placeholder"
       :value="modelValue"
