@@ -4,6 +4,8 @@ import { tv } from "tailwind-variants";
 const chip = tv({
   variants: {
     color: {
+      neutral:
+        "bg-gray-100 dark:bg-gray-400/30 text-gray-600 dark:text-gray-400",
       success:
         "bg-emerald-100 dark:bg-emerald-400/30 text-emerald-600 dark:text-emerald-400",
       warning:

@@ -1,7 +1,7 @@
 import { useVuelidate } from "@vuelidate/core";
 import { required } from "@vuelidate/validators";
 
-export function useFeatureAddEditRules(options) {
+export function useComponentAddEditRules(options) {
     const rules = computed(() => ({
         name: {
           required,

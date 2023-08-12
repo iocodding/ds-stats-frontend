@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex items-center mt-5">
+  <div class="flex items-center">
     <div class="form-switch">
       <input
         type="checkbox"

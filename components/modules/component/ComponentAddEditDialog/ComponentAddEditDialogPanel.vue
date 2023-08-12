@@ -1,5 +1,5 @@
 <script setup>
-import { useFeatureAddEditRules } from "./useFeatureAddEditRules.js";
+import { useComponentAddEditRules } from "./useComponentAddEditRules.js";
 
 const props = defineProps({
   selected: {
@@ -19,7 +19,7 @@ const componentPhasesOptions = [
   { id: 3, name: "Done" },
 ];
 
-const { v } = useFeatureAddEditRules({ name: componentName });
+const { v } = useComponentAddEditRules({ name: componentName });
 const { createComponent, updateComponent, loading } = useComponentActions();
 
 function onSubmit() {
@@ -43,6 +43,19 @@ function validate() {
     onSubmit();
   }
 }
+
+const pages = [
+  {
+    id: 1,
+    name: "General",
+  },
+  {
+    id: 2,
+    name: "Code",
+  },
+];
+
+const selectedItemId = ref(1);
 </script>
 
 <template>
@@ -54,6 +67,14 @@ function validate() {
     @submit="validate"
   >
     <div class="flex flex-col gap-2">
+      <!-- <DssTabs>
+        <DssTab
+          v-for="page in pages"
+          :name="page.name"
+          @click="selectedItemId = page.id"
+          :active="selectedItemId === page.id"
+        />
+      </DssTabs> -->
       <DssInput
         v-model="componentName"
         autofocus
@@ -62,6 +83,7 @@ function validate() {
         :errorMessage="v.name.$errors[0]?.$message"
       />
       <DssSelect label="Status" :options="componentPhasesOptions" />
+      <DssTextarea label="Notes" placeholder="Write a note" />
       <DssSwitch label="Enabled" />
     </div>
   </WidgetDialogPanel>

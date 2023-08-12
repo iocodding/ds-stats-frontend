@@ -120,7 +120,7 @@
             </SidebarLinkGroup>
             <SidebarLinkGroup
               to="/contributions"
-              name="Contributions"
+              name="Marketplace"
               :activeCondition="route.fullPath.includes('contributions')"
             >
               <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
@@ -145,7 +145,7 @@
               </svg>
             </SidebarLinkGroup>
             <SidebarLinkGroup
-              name="Components"
+              name="Design System"
               to="/components"
               :activeCondition="route.fullPath.includes('components')"
             >
@@ -214,7 +214,7 @@
                 />
               </svg>
             </SidebarLinkGroup>
-            <SidebarLinkGroup
+            <!-- <SidebarLinkGroup
               to="/feature"
               name="Feature"
               :activeCondition="route.fullPath.includes('feature')"
@@ -239,7 +239,7 @@
                   d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z"
                 />
               </svg>
-            </SidebarLinkGroup>
+            </SidebarLinkGroup> -->
             <SidebarLinkGroup
               to="/setup"
               name="Setup"

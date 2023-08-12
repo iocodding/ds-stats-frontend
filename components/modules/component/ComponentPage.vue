@@ -37,10 +37,8 @@ function onAddEditDialogClose() {
 <template>
   <div>
     <FeatureToolbar @onCreate="onAddEdit" />
-    {{ selectedComponent }}
-
     <FeatureTable @onEdit="onEdit" @onManage="onManage" @onDelete="onDelete" />
-    <FeatureAddEditDialog
+    <ComponentAddEditDialog
       :open="addEditDialogOpen"
       :selected="selectedComponent"
       @close="onAddEditDialogClose"

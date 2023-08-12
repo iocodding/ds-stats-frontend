@@ -17,7 +17,7 @@
       <DssButton @click="$emit('onCreate')" text="Create Component" />
     </div>
   </div>
-  <div class="sm:flex sm:justify-between sm:items-center mb-5">
+  <!-- <div class="sm:flex sm:justify-between sm:items-center mb-5">
     <div class="mb-4 sm:mb-0">
       <ul class="flex flex-wrap -m-1">
         <li class="m-1">
@@ -52,5 +52,5 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div> -->
 </template>

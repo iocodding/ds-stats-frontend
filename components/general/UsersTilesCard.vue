@@ -44,9 +44,9 @@
                   </h2>
                 </router-link>
                 <div class="flex items-center">
-                  <span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"
+                  <!-- <span class="text-sm font-medium text-slate-400 -mt-0.5 mr-1"
                     >-&gt;</span
-                  >
+                  > -->
                   <span>{{ item.location }}</span>
                 </div>
               </div>

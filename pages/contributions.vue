@@ -49,7 +49,7 @@
 const items = ref([
   {
     id: 0,
-    name: "Button > Primary",
+    name: "Attlasian Design System",
     link: "#0",
     location: "Team A",
     content:
@@ -57,73 +57,9 @@ const items = ref([
   },
   {
     id: 1,
-    name: "Chip > Size > Xsmall",
+    name: "Twillio Design System",
     link: "#0",
     location: "Team C",
-    content:
-      "Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.",
-  },
-  {
-    id: 2,
-    name: "Tisha Yanchev",
-    link: "#0",
-    location: "🇩🇪",
-    content:
-      "Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.",
-  },
-  {
-    id: 3,
-    name: "Sergio Gonnelli",
-    link: "#0",
-    location: "🇮🇹",
-    content:
-      "Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.",
-  },
-  {
-    id: 4,
-    name: "Jerzy Wierzy",
-    link: "#0",
-    location: "🇪🇸",
-    content:
-      "Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.",
-  },
-  {
-    id: 5,
-    name: "Mirko Grubisic",
-    link: "#0",
-    location: "🇩🇪",
-    content:
-      "Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.",
-  },
-  {
-    id: 6,
-    name: "Alisha Acharya",
-    link: "#0",
-    location: "🇬🇧",
-    content:
-      "Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.",
-  },
-  {
-    id: 7,
-    name: "Brian Halligan",
-    link: "#0",
-    location: "🇺🇸",
-    content:
-      "Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.",
-  },
-  {
-    id: 8,
-    name: "Patricia Semklo",
-    link: "#0",
-    location: "🇮🇳",
-    content:
-      "Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.",
-  },
-  {
-    id: 9,
-    name: "Maria Martinez",
-    link: "#0",
-    location: "🇮🇹",
     content:
       "Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.",
   },

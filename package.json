@@ -9,6 +9,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.1.9",
+    "@codemirror/theme-one-dark": "^6.1.2",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
@@ -22,10 +24,12 @@
     "chart.js": "^4.3.0",
     "chartjs-adapter-moment": "^1.0.1",
     "click-outside-vue3": "^4.0.1",
+    "codemirror": "^6.0.1",
     "flatpickr": "^4.6.13",
     "nuxt-icon": "^0.4.2",
     "swr-vue": "^1.9.1",
     "tailwind-variants": "^0.1.8",
+    "vue-codemirror": "^6.1.1",
     "vue-draggable-next": "^2.2.1",
     "vue-flatpickr-component": "^11.0.3",
     "vue-toastification": "2.0.0-rc.5",

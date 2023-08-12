@@ -5,20 +5,12 @@ const pages = [
     to: "/feature",
   },
   {
-    name: "Question Board",
+    name: "Sections ",
+    to: "/feature/sections",
+  },
+  {
+    name: "Question",
     to: "/feature/questions",
-  },
-  {
-    name: "Design system",
-    to: "/feature/design-system",
-  },
-  {
-    name: "API",
-    to: "/feature/api",
-  },
-  {
-    name: "Playground",
-    to: "/feature/playground",
   },
 ];
 </script>
@@ -30,7 +22,7 @@ const pages = [
           <h1
             class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold"
           >
-            Feature 01 - Clients Table ✨
+            Feature 01 - Manage Customers
           </h1>
         </div>
       </div>
