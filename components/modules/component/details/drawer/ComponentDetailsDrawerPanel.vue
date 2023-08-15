@@ -53,7 +53,7 @@ const addEditVariantOpen = ref(false);
       />
     </div>
 
-    <!-- <div v-if="activePage === 2" class="flex w-full flex-col gap-4">
+    <div v-if="activePage === 2" class="flex w-full flex-col gap-4">
       <div
         class="w-full h-64 object-cover bg-slate-900 flex justify-center items-center"
       >
@@ -70,7 +70,7 @@ const addEditVariantOpen = ref(false);
           />
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
   <VariantAddEditDialog
     :modalOpen="addEditVariantOpen"

@@ -13,7 +13,7 @@ const types = [
     color: "danger",
   },
   {
-    value: "InDesign",
+    value: "InProgress",
     title: "In Design",
     color: "warning",
   },

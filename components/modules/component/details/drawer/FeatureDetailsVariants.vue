@@ -1,5 +1,11 @@
 <script setup>
 const { data: options } = useComponentsOptionsLoader();
+const addingOptionId = ref(0);
+const { deleteComponentOptionVariant } = useComponentsOptionsVariantsActions();
+
+function onDeleteComponentOptionVariant(componentOptionVariant) {
+  deleteComponentOptionVariant(componentOptionVariant);
+}
 </script>
 
 <template>
@@ -12,10 +18,10 @@ const { data: options } = useComponentsOptionsLoader();
     <div class="p-3">
       <div v-for="option in options">
         <header
-          class="flex justify-between text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm font-semibold p-2 mt-2"
+          class="flex justify-between text-xs uppercase text-slate-400 dark:text-slate-400 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm font-semibold p-2 mt-2"
         >
           <div>
-            <DssIcon icon="fa-diamond" class="mr-2" />
+            <DssIcon icon="fa-diamond" class="mr-2 text-sky-600" />
             {{ option.name }}
           </div>
           <span @click="$emit('onEdit')" class="cursor-pointer"
@@ -27,32 +33,28 @@ const { data: options } = useComponentsOptionsLoader();
         <ul class="my-1">
           <!-- Item -->
           <li
-            v-for="variant in option.component_variants.data"
+            v-for="variant in option.component_option_variants.data"
             class="flex px-2"
           >
-            <div class="w-9 h-9 rounded-full shrink-0 bg-rose-500 my-2 mr-3">
-              <svg
-                class="w-9 h-9 fill-current text-rose-50"
-                viewBox="0 0 36 36"
-              >
-                <path
-                  d="M25 24H11a1 1 0 01-1-1v-5h2v4h12v-4h2v5a1 1 0 01-1 1zM14 13h8v2h-8z"
-                />
-              </svg>
-            </div>
+            <ComponentOptionVariantStatus
+              :type="option.id === 1 ? 'variant' : 'slot'"
+            />
             <div
               class="grow flex items-centerborder-slate-100 dark:border-slate-700 text-sm py-2"
             >
               <div class="grow flex justify-between">
                 <div class="self-center">
                   <a
-                    class="font-medium text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white"
+                    @click="$emit('onEdit', item)"
+                    class="font-medium cursor-pointer hover:underline text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white"
                   >
                     {{ variant.attributes.name }}
                   </a>
                 </div>
                 <div class="shrink-0 self-end ml-2 flex gap-2">
-                  <WidgetVariantStatus :value="variant.attributes.status" />
+                  <WidgetVariantStatus
+                    :value="variant.attributes.status || 'Proposed'"
+                  />
                   <DropdownEditMenu align="right" class="relative inline-flex">
                     <li>
                       <a
@@ -65,7 +67,7 @@ const { data: options } = useComponentsOptionsLoader();
                     <li>
                       <a
                         class="font-medium text-sm text-rose-500 hover:text-rose-600 flex py-1 px-3 cursor-pointer"
-                        @click="$emit('onDelete', item)"
+                        @click="onDeleteComponentOptionVariant(variant)"
                         >Delete</a
                       >
                     </li>
@@ -75,18 +77,11 @@ const { data: options } = useComponentsOptionsLoader();
             </div>
           </li>
         </ul>
-        <div class="flex w-full gap-4 py-1">
-          <DssInput class="w-full" placeholder="ex: New question" autofocus />
-          <div class="flex gap-2">
-            <DssButton variant="primary">
-              <DssIcon icon="fa-check" />
-            </DssButton>
-            <DssButton variant="secondary">
-              <DssIcon icon="fa-xmark" />
-            </DssButton>
-          </div>
-        </div>
-        <!-- <DssButtonPlain class="pl-3" /> -->
+
+        <ComponentOptionVariantAddForm
+          :optionType="option.id === 1 ? 'variant' : 'slot'"
+          :option="option"
+        />
       </div>
     </div>
   </div>

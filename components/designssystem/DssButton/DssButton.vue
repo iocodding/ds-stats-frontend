@@ -47,6 +47,8 @@ const button = tv({
       secondary:
         "dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300",
       tertiary: "text-slate-600 dark:text-slate-300 hover:bg-slate-800",
+      "tertiary-secondary":
+        "text-indigo-500 hover:bg-indigo-500 hover:bg-opacity-10",
       danger: "bg-rose-500 hover:bg-rose-600 text-white",
       "danger-secondary":
         "dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-rose-500",
@@ -60,7 +62,7 @@ const classes = computed(() =>
 <template>
   <button class="btn" :class="classes">
     <DssButtonLoading v-if="loading" />
-    <!-- <DssIcon v-if="preppendIcon" :icon="preppendIcon" /> -->
+    <DssIcon v-if="preppendIcon" :icon="preppendIcon" />
     <slot></slot>
     <span v-if="text" class="mx-1"> {{ text }}</span>
     <span v-if="preppendText" class="text-slate-400 dark:text-slate-500">{{
