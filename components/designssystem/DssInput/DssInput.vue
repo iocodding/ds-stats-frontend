@@ -1,4 +1,6 @@
 <script setup>
+import { tv } from "tailwind-variants";
+
 const props = defineProps({
   modelValue: {
     type: String,
@@ -19,6 +21,10 @@ const props = defineProps({
   label: {
     type: String,
     default: "",
+  },
+  size: {
+    type: String,
+    default: "md",
   },
 });
 
@@ -42,6 +48,16 @@ function keyup(e) {
     emit("keyup:enter");
   }
 }
+
+const button = tv({
+  variants: {
+    size: {
+      sm: "h-8",
+      md: "h-10",
+    },
+  },
+});
+const classes = computed(() => button({ size: props.size }));
 </script>
 <template>
   <div>
@@ -51,7 +67,7 @@ function keyup(e) {
     <input
       ref="dssinputRef"
       class="form-input h-10 w-full bg-white dark:bg-slate-800"
-      :class="errorMessage && '!border-rose-500'"
+      :class="{ '!border-rose-500': errorMessage }"
       :placeholder="placeholder"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"

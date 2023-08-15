@@ -29,12 +29,13 @@ const isAdding = ref(false);
 </script>
 <template>
   <div>
-    <div class="flex w-full gap-4 px-2" v-if="isAdding">
-      <div class="flex w-full">
+    <div class="flex w-full items-center gap-4 px-2" v-if="isAdding">
+      <div class="flex w-full items-center">
         <ComponentOptionVariantStatus :type="optionType" />
         <DssInput
           v-model="variantModel"
           class="w-full"
+          size="sm"
           placeholder="ex: New question"
           autofocus
         />
