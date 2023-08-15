@@ -5,7 +5,7 @@ const pages = [
     to: "/components",
   },
   {
-    name: "Gallery",
+    name: "Contributions",
     to: "/components/gallery",
   },
   {

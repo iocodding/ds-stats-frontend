@@ -84,7 +84,7 @@ const selectedItemId = ref(1);
       />
       <DssSelect label="Status" :options="componentPhasesOptions" />
       <DssTextarea label="Notes" placeholder="Write a note" />
-      <DssSwitch label="Enabled" />
+      <DssSwitch label="Enabled" @click="open" />
     </div>
   </WidgetDialogPanel>
 </template>

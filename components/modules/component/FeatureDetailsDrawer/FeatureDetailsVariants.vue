@@ -12,9 +12,17 @@ const { data: options } = useComponentsOptionsLoader();
     <div class="p-3">
       <div v-for="option in options">
         <header
-          class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm font-semibold p-2"
+          class="flex justify-between text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm font-semibold p-2 mt-2"
         >
-          {{ option.name }}
+          <div>
+            <DssIcon icon="fa-diamond" class="mr-2" />
+            {{ option.name }}
+          </div>
+          <span @click="$emit('onEdit')" class="cursor-pointer"
+            ><DssIcon
+              class="flex text-base hover:text-slate-400"
+              icon="fa-sliders"
+          /></span>
         </header>
         <ul class="my-1">
           <!-- Item -->
@@ -43,20 +51,43 @@ const { data: options } = useComponentsOptionsLoader();
                     {{ variant.attributes.name }}
                   </a>
                 </div>
-                <div class="shrink-0 self-end ml-2">
+                <div class="shrink-0 self-end ml-2 flex gap-2">
                   <WidgetVariantStatus :value="variant.attributes.status" />
+                  <DropdownEditMenu align="right" class="relative inline-flex">
+                    <li>
+                      <a
+                        class="font-medium text-sm text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-200 flex py-1 px-3 cursor-pointer"
+                        @click="$emit('onEdit', item)"
+                        >Edit</a
+                      >
+                    </li>
+
+                    <li>
+                      <a
+                        class="font-medium text-sm text-rose-500 hover:text-rose-600 flex py-1 px-3 cursor-pointer"
+                        @click="$emit('onDelete', item)"
+                        >Delete</a
+                      >
+                    </li>
+                  </DropdownEditMenu>
                 </div>
               </div>
             </div>
           </li>
         </ul>
+        <div class="flex w-full gap-4 py-1">
+          <DssInput class="w-full" placeholder="ex: New question" autofocus />
+          <div class="flex gap-2">
+            <DssButton variant="primary">
+              <DssIcon icon="fa-check" />
+            </DssButton>
+            <DssButton variant="secondary">
+              <DssIcon icon="fa-xmark" />
+            </DssButton>
+          </div>
+        </div>
+        <!-- <DssButtonPlain class="pl-3" /> -->
       </div>
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "DashboardCard10",
-};
-</script>

@@ -61,7 +61,8 @@ const classes = computed(() =>
   <button class="btn" :class="classes">
     <DssButtonLoading v-if="loading" />
     <!-- <DssIcon v-if="preppendIcon" :icon="preppendIcon" /> -->
-    <span class="mx-1"> {{ text }}</span>
+    <slot></slot>
+    <span v-if="text" class="mx-1"> {{ text }}</span>
     <span v-if="preppendText" class="text-slate-400 dark:text-slate-500">{{
       preppendText
     }}</span>

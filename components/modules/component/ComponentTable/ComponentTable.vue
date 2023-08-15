@@ -39,16 +39,23 @@ const columns = [
     </template>
     <template #menu="{ item }">
       <div class="flex gap-2">
-        <DssButton
-          @click="$emit('onEdit', item)"
-          text="Edit"
-          variant="secondary"
-        />
-        <DssButton
-          @click="$emit('onDelete', item)"
-          text="Delete"
-          variant="danger-secondary"
-        />
+        <DropdownEditMenu align="right" class="relative inline-flex">
+          <li>
+            <a
+              class="font-medium text-sm text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-slate-200 flex py-1 px-3 cursor-pointer"
+              @click="$emit('onEdit', item)"
+              >Edit</a
+            >
+          </li>
+
+          <li>
+            <a
+              class="font-medium text-sm text-rose-500 hover:text-rose-600 flex py-1 px-3 cursor-pointer"
+              @click="$emit('onDelete', item)"
+              >Delete</a
+            >
+          </li>
+        </DropdownEditMenu>
       </div>
     </template>
   </DssTable>

@@ -10,6 +10,7 @@
         :sidebarOpen="sidebarOpen"
         @toggle-sidebar="sidebarOpen = !sidebarOpen"
       />
+      <WidgetRouteBreadcrumb />
       <slot />
     </div>
   </div>

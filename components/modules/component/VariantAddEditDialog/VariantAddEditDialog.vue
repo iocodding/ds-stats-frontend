@@ -13,7 +13,7 @@ const props = defineProps({
 const emit = defineEmits(["close"]);
 </script>
 <template>
-  <WidgetDialog :modalOpen="open" title="Create Feature" @close="emit('close')">
-    <FeatureAddEditDialogPanel @close="emit('close')" :selected="selected" />
+  <WidgetDialog :modalOpen="open" title="Create Variant" @close="emit('close')">
+    <VariantAddEditDialogPanel @close="emit('close')" :selected="selected" />
   </WidgetDialog>
 </template>
