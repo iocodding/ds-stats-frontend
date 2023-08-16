@@ -63,7 +63,6 @@ function validate() {
         label="Name *"
         :errorMessage="v.name.$errors[0]?.$message"
       />
-      <DssSelect label="Type" :options="componentPhasesOptions" />
     </div>
     <template #prependSave>
       <DssButton text="Delete" variant="danger-secondary" />

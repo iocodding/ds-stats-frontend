@@ -12,11 +12,14 @@ const emit = defineEmits(["close"]);
 
 const isEditMode = ref(!!props.selected);
 const componentName = ref(props.selected?.name);
-const componentPhasesOptions = [
-  { id: 0, name: "None" },
-  { id: 1, name: "In Design" },
-  { id: 2, name: "In Development" },
-  { id: 3, name: "Done" },
+const componentVersion = ref(props.selected?.version || "1.0.0");
+const componentNotes = ref(props.selected?.notes);
+
+const componentSectionOptopn = [
+  { id: 0, name: "Inputs" },
+  { id: 1, name: "Overlays" },
+  { id: 2, name: "Display" },
+  { id: 3, name: "Generic" },
 ];
 
 const { v } = useComponentAddEditRules({ name: componentName });
@@ -25,6 +28,8 @@ const { createComponent, updateComponent, loading } = useComponentActions();
 function onSubmit() {
   const body = {
     name: componentName.value,
+    version: componentVersion.value,
+    notes: componentNotes.value,
   };
   if (isEditMode.value) {
     updateComponent({ ...body, id: props.selected.id }).then(() => {
@@ -82,9 +87,20 @@ const selectedItemId = ref(1);
         label="Name *"
         :errorMessage="v.name.$errors[0]?.$message"
       />
-      <DssSelect label="Status" :options="componentPhasesOptions" />
-      <DssTextarea label="Notes" placeholder="Write a note" />
-      <DssSwitch label="Enabled" @click="open" />
+      <DssInput
+        v-model="componentVersion"
+        autofocus
+        placeholder="ex: 2.11.22"
+        label="Version *"
+        :errorMessage="v.name.$errors[0]?.$message"
+      />
+      <DssSelect label="Status" :options="componentSectionOptopn" />
+      <DssTextarea
+        v-model="componentNotes"
+        label="Notes"
+        placeholder="Write a note"
+      />
+      <!-- <DssSwitch label="Stable" @click="open" /> -->
     </div>
   </WidgetDialogPanel>
 </template>

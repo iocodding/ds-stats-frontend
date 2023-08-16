@@ -14,6 +14,9 @@ const emit = defineEmits(["close"]);
 </script>
 <template>
   <WidgetDialog :modalOpen="open" title="Create Variant" @close="emit('close')">
-    <VariantAddEditDialogPanel @close="emit('close')" :selected="selected" />
+    <ComponentVariantEditDialogPanel
+      @close="emit('close')"
+      :selected="selected"
+    />
   </WidgetDialog>
 </template>

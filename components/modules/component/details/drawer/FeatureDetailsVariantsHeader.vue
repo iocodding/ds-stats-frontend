@@ -1,8 +1,8 @@
 <script setup>
 const props = defineProps({
-  name: {
-    type: String,
-    default: "",
+  option: {
+    type: Object,
+    default: () => {},
   },
 });
 </script>
@@ -11,8 +11,19 @@ const props = defineProps({
     class="flex justify-between text-xs uppercase text-slate-400 dark:text-slate-400 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm font-semibold p-2 mt-2"
   >
     <div>
-      <DssIcon icon="fa-diamond" class="mr-2 text-sky-600" />
-      {{ name }}
+      <DssIcon
+        v-if="option.type === 'Variant'"
+        icon="fa-diamond"
+        class="mr-2"
+      />
+      <DssIcon
+        v-if="option.type === 'Slot'"
+        icon="fa-right-left"
+        class="mr-2"
+      />
+      <DssIcon v-if="option.type === 'Text'" icon="fa-font" class="mr-2" />
+      <DssIcon v-if="option.type === 'Boolean'" icon="fa-eye" class="mr-2" />
+      {{ option.name }}
     </div>
     <span @click="$emit('onEdit')" class="cursor-pointer"
       ><DssIcon

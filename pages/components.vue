@@ -5,12 +5,12 @@ const pages = [
     to: "/components",
   },
   {
-    name: "Contributions",
-    to: "/components/gallery",
-  },
-  {
     name: "Tokens",
     to: "/components/tokens",
+  },
+  {
+    name: "Contributions",
+    to: "/components/gallery",
   },
 ];
 </script>
@@ -22,7 +22,7 @@ const pages = [
           <h1
             class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold"
           >
-            Feature 01 - Clients Table ✨
+            Design System - DSS ✨
           </h1>
         </div>
       </div>

@@ -7,6 +7,10 @@ const columns = [
     val: "name",
   },
   {
+    name: "Version",
+    val: "version",
+  },
+  {
     name: "Created at",
     val: "createdAt",
   },
@@ -14,6 +18,10 @@ const columns = [
     name: "Updated at",
     val: "updatedAt",
   },
+  // {
+  //   name: "Contributions",
+  //   val: "contributions",
+  // },
   {
     name: "Menu",
     val: "menu",
@@ -37,6 +45,9 @@ const columns = [
         >{{ item.name }}</span
       >
     </template>
+    <!-- <template #contributions="{ item }">
+      <DssIcon icon="fa-message" />
+    </template> -->
     <template #menu="{ item }">
       <div class="flex gap-2">
         <DropdownEditMenu align="right" class="relative inline-flex">

@@ -12,8 +12,8 @@ function onDeleteComponentOptionVariant(componentOptionVariant) {
   <DssTableWrapper name="Variants">
     <div v-for="option in options">
       <FeatureDetailsVariantsHeader
-        :name="option.name"
-        @onEdit="$emit('onEdit')"
+        :option="option"
+        @onEdit="$emit('onEditOption', option)"
       />
       <ul class="my-1">
         <!-- Item -->
@@ -21,16 +21,14 @@ function onDeleteComponentOptionVariant(componentOptionVariant) {
           v-for="variant in option.component_option_variants.data"
           class="flex px-2"
         >
-          <ComponentOptionVariantStatus
-            :type="option.id === 1 ? 'variant' : 'slot'"
-          />
+          <ComponentOptionVariantStatus :type="option.type" />
           <div
             class="grow flex items-centerborder-slate-100 dark:border-slate-700 text-sm py-2"
           >
             <div class="grow flex justify-between">
               <div class="self-center">
                 <a
-                  @click="$emit('onEdit', item)"
+                  @click="$emit('onEditVariant', item)"
                   class="font-medium cursor-pointer hover:underline text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white"
                 >
                   {{ variant.attributes.name }}
@@ -41,7 +39,7 @@ function onDeleteComponentOptionVariant(componentOptionVariant) {
                   :value="variant.attributes.status || 'Proposed'"
                 />
                 <FeatureDetailsVariantsOptions
-                  @onEdit="$emit('onEdit', item)"
+                  @onEdit="$emit('onEditVariant', item)"
                   @onDelete="onDeleteComponentOptionVariant(variant)"
                 />
               </div>
@@ -50,10 +48,15 @@ function onDeleteComponentOptionVariant(componentOptionVariant) {
         </li>
       </ul>
 
-      <ComponentOptionVariantAddForm
-        :optionType="option.id === 1 ? 'variant' : 'slot'"
-        :option="option"
-      />
+      <ComponentOptionVariantAddForm :option="option" />
     </div>
   </DssTableWrapper>
+  <div class="flex gap-2 mt-4">
+    <DssButton
+      preppendIcon="fa-add"
+      @click="$emit('onAdd')"
+      text="Add Variant"
+      size="sm"
+    />
+  </div>
 </template>

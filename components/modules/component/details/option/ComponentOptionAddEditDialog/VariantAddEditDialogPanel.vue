@@ -12,29 +12,49 @@ const emit = defineEmits(["close"]);
 
 const isEditMode = ref(!!props.selected);
 const componentName = ref(props.selected?.name);
+const componentType = ref(0);
 const componentPhasesOptions = [
-  { id: 0, name: "Variant" },
-  { id: 1, name: "Boolean" },
-  { id: 2, name: "Text" },
-  { id: 3, name: "Slot" },
+  { id: 0, icon: "fa-diamond", name: "Variant" },
+  { id: 1, icon: "fa-eye", name: "Boolean" },
+  { id: 2, icon: "fa-font", name: "Text" },
+  { id: 3, icon: "fa-left-right", name: "Slot" },
 ];
 
 const { v } = useVariantAddEditRules({ name: componentName });
-const { createComponent, updateComponent, loading } = useComponentActions();
+const {
+  createComponentOption,
+  updateComponentOption,
+  deleteComponentOption,
+  loading,
+} = useComponentOptionsActions();
 
 function onSubmit() {
-  const body = {
-    name: componentName.value,
-  };
   if (isEditMode.value) {
-    updateComponent({ ...body, id: props.selected.id }).then(() => {
+    const updateBody = {
+      name: componentName.value,
+      component: 36,
+      id: props.selected.id,
+    };
+
+    updateComponentOption(updateBody).then(() => {
       emit("close");
     });
   } else {
-    createComponent(body).then(() => {
+    const addBody = {
+      name: componentName.value,
+      type: componentPhasesOptions[componentType.value].name,
+      component: 36,
+    };
+    createComponentOption(addBody).then(() => {
       emit("close");
     });
   }
+}
+
+function onDelete() {
+  deleteComponentOption(props.selected).then(() => {
+    emit("close");
+  });
 }
 
 function validate() {
@@ -49,12 +69,13 @@ function validate() {
   <WidgetDialogPanel
     :loading="loading"
     cancelButtonText="Cancel"
-    saveButtonText="Create Variant"
+    :saveButtonText="isEditMode ? 'Update Option' : 'Create Option'"
     @close="emit('close')"
     @submit="validate"
   >
-    <DssAlert class="mb-4"> This variant is used on 17 places</DssAlert>
-
+    <DssAlert v-if="isEditMode" class="mb-4">
+      This Option is used on 17 places</DssAlert
+    >
     <div class="flex flex-col gap-2">
       <DssInput
         v-model="componentName"
@@ -63,10 +84,21 @@ function validate() {
         label="Name *"
         :errorMessage="v.name.$errors[0]?.$message"
       />
-      <DssSelect label="Type" :options="componentPhasesOptions" />
+      <DssSelect
+        v-if="!isEditMode"
+        v-model="componentType"
+        label="Type"
+        :options="componentPhasesOptions"
+      />
     </div>
     <template #prependSave>
-      <DssButton text="Delete" variant="danger-secondary" />
+      <DssButton
+        v-if="isEditMode"
+        @click="onDelete"
+        :loading="loading"
+        text="Delete"
+        variant="danger-secondary"
+      />
     </template>
   </WidgetDialogPanel>
 </template>

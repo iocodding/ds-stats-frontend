@@ -1,3 +1,26 @@
+<script setup>
+const props = defineProps({
+  label: {
+    type: String,
+    default: null,
+  },
+  modelValue: {
+    type: Number,
+    default: 0,
+  },
+  options: {
+    type: Array,
+    default: () => [],
+  },
+  errorMessage: {
+    type: String,
+    default: null,
+  },
+});
+
+const dropdownOpen = ref(false);
+const selected = ref(0);
+</script>
 <template>
   <div class="relative inline-flex w-full flex-col">
     <label v-if="label" class="block text-sm font-medium mb-1">{{
@@ -14,7 +37,14 @@
       :aria-expanded="dropdownOpen"
     >
       <span class="flex items-center">
-        <span>{{ options[selected].name }}</span>
+        <div>
+          <DssIcon
+            v-if="options[modelValue].icon"
+            :icon="options[modelValue].icon"
+            class="mr-2 text-xs"
+          />
+          <span>{{ options[modelValue].name }}</span>
+        </div>
       </span>
       <svg
         class="shrink-0 ml-1 fill-current text-slate-400"
@@ -50,16 +80,24 @@
             v-for="option in options"
             :key="option.id"
             class="flex items-center justify-between w-full hover:bg-slate-50 dark:hover:bg-slate-700/20 py-2 px-3 cursor-pointer"
-            :class="option.id === selected && 'text-indigo-500'"
+            :class="option.id === modelValue && 'text-indigo-500'"
             @click="
-              selected = option.id;
+              $emit('update:modelValue', option.id);
               dropdownOpen = false;
             "
           >
-            <span>{{ option.name }}</span>
+            <div>
+              <DssIcon
+                v-if="option.icon"
+                :icon="option.icon"
+                class="mr-2 text-xs"
+              />
+              <span>{{ option.name }}</span>
+            </div>
+
             <svg
               class="shrink-0 ml-2 fill-current text-indigo-400"
-              :class="option.id !== selected && 'invisible'"
+              :class="option.id !== modelValue && 'invisible'"
               width="12"
               height="9"
               viewBox="0 0 12 9"
@@ -78,25 +116,6 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps({
-  label: {
-    type: String,
-    default: null,
-  },
-  options: {
-    type: Array,
-    default: () => [],
-  },
-  errorMessage: {
-    type: String,
-    default: null,
-  },
-});
-
-const dropdownOpen = ref(false);
-const selected = ref(0);
-</script>
 <!-- <script>
 import { ref, onMounted, onUnmounted } from "vue";
 

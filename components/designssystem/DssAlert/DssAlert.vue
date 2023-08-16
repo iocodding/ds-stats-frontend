@@ -72,7 +72,7 @@ export default {
         case "success":
           return "bg-emerald-100 dark:bg-emerald-400/30 border-emerald-200 dark:border-transparent text-emerald-600 dark:text-emerald-500";
         default:
-          return "bg-indigo-100 dark:bg-indigo-400/30 border-indigo-200 dark:border-transparent text-indigo-500 dark:text-indigo-400";
+          return "bg-indigo-100 dark:bg-indigo-500/30 border-indigo-200 dark:border-transparent text-indigo-500 dark:text-indigo-300";
       }
     };
 
