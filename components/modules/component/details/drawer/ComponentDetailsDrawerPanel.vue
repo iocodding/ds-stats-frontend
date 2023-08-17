@@ -1,4 +1,10 @@
 <script setup>
+const props = defineProps({
+  selected: {
+    type: Object,
+    required: true,
+  },
+});
 const pages = [
   {
     id: 1,
@@ -25,7 +31,10 @@ const activePage = ref(1);
         :active="activePage === page.id"
       />
     </DssTabs>
-    <ComponentDetailsDrawerPanelOptions v-if="activePage === 1" />
+    <ComponentDetailsDrawerPanelOptions
+      :component="selected"
+      v-if="activePage === 1"
+    />
     <ComponentDetailsDrawerPanelPlayground v-if="activePage === 2" />
   </div>
 </template>

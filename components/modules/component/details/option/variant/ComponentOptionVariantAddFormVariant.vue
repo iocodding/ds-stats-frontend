@@ -29,7 +29,7 @@ const isAdding = ref(false);
 </script>
 <template>
   <div>
-    <div class="flex w-full items-center gap-4 px-2" v-if="isAdding">
+    <div class="flex w-full items-center gap-4" v-if="isAdding">
       <div class="flex w-full items-center">
         <ComponentOptionVariantStatus :type="optionType" />
         <DssInput

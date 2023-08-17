@@ -6,6 +6,10 @@ const props = defineProps({
     type: Object,
     default: null,
   },
+  component: {
+    type: Object,
+    default: null,
+  },
 });
 
 const emit = defineEmits(["close"]);
@@ -32,7 +36,6 @@ function onSubmit() {
   if (isEditMode.value) {
     const updateBody = {
       name: componentName.value,
-      component: 36,
       id: props.selected.id,
     };
 
@@ -43,7 +46,7 @@ function onSubmit() {
     const addBody = {
       name: componentName.value,
       type: componentPhasesOptions[componentType.value].name,
-      component: 36,
+      component: props.component.id,
     };
     createComponentOption(addBody).then(() => {
       emit("close");

@@ -1,4 +1,10 @@
 <script setup>
+const props = defineProps({
+  component: {
+    type: Object,
+    default: () => {},
+  },
+});
 const addEditOptionOpen = ref(false);
 const editVariantOpen = ref(false);
 const selectedOption = ref(null);
@@ -14,14 +20,16 @@ function onAddEditOptionClose(option) {
 </script>
 
 <template>
-  <FeatureDetailsVariants
+  <ComponentDetailsOptions
     class="mt-2 mb-2"
+    :component="component"
     @onEditVariant="editVariantOpen = true"
     @onEditOption="onEditOption"
     @onAdd="addEditOptionOpen = true"
   />
   <VariantAddEditDialog
     :modalOpen="addEditOptionOpen"
+    :component="component"
     :selected="selectedOption"
     @close="onAddEditOptionClose"
   />

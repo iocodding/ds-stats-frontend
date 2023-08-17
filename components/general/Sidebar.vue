@@ -120,7 +120,7 @@
             </SidebarLinkGroup>
             <SidebarLinkGroup
               to="/contributions"
-              name="Marketplace"
+              name="Templates"
               :activeCondition="route.fullPath.includes('contributions')"
             >
               <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">

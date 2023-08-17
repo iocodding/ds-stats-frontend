@@ -28,4 +28,16 @@ const props = defineProps({
       />
     </svg>
   </div>
+  <div
+    v-if="type === 'Text'"
+    class="w-7 h-7 rounded-full shrink-0 bg-yellow-600 my-2 mr-3 flex items-center justify-center"
+  >
+    <DssIcon icon="fa-font" class="text-emerald-50 text-xs" />
+  </div>
+  <div
+    v-if="type === 'Boolean'"
+    class="w-7 h-7 rounded-full shrink-0 bg-rose-600 my-2 mr-3 flex items-center justify-center"
+  >
+    <DssIcon icon="fa-eye" class="text-emerald-50 text-xs" />
+  </div>
 </template>

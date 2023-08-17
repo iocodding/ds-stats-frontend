@@ -4,12 +4,17 @@ const props = defineProps({
     type: Object,
     default: () => {},
   },
+  component: {
+    type: Object,
+    default: () => {},
+  },
 });
 </script>
 <template>
   <div>
     <ComponentOptionVariantAddFormVariant
       :option="option"
+      :component="component"
       v-if="option.type === 'Variant'"
     />
     <ComponentOptionVariantAddFormSlot

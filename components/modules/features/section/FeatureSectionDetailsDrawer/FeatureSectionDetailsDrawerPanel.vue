@@ -37,7 +37,7 @@ const activePage = ref(1);
         :active="activePage === page.id"
       />
     </DssTabs>
-    <FeatureDetailsVariants v-if="activePage === 1" class="mt-4" />
+    <ComponentDetailsOptions v-if="activePage === 1" class="mt-4" />
 
     <div v-if="activePage === 2" class="flex w-full flex-col gap-4">
       <div
