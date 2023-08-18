@@ -16,10 +16,10 @@ const componentVersion = ref(props.selected?.version || "1.0.0");
 const componentNotes = ref(props.selected?.notes);
 
 const componentSectionOptopn = [
-  { id: 0, name: "Inputs" },
-  { id: 1, name: "Overlays" },
-  { id: 2, name: "Display" },
-  { id: 3, name: "Generic" },
+  { id: 0, value: "Inputs" },
+  { id: 1, value: "Overlays" },
+  { id: 2, value: "Display" },
+  { id: 3, value: "Generic" },
 ];
 
 const { v } = useComponentAddEditRules({ name: componentName });

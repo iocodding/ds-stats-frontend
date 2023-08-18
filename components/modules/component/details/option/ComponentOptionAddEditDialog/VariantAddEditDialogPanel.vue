@@ -18,10 +18,10 @@ const isEditMode = ref(!!props.selected);
 const componentName = ref(props.selected?.name);
 const componentType = ref(0);
 const componentPhasesOptions = [
-  { id: 0, icon: "fa-diamond", name: "Variant" },
-  { id: 1, icon: "fa-eye", name: "Boolean" },
-  { id: 2, icon: "fa-font", name: "Text" },
-  { id: 3, icon: "fa-left-right", name: "Slot" },
+  { id: 0, icon: "fa-diamond", value: "Variant" },
+  { id: 1, icon: "fa-eye", value: "Boolean" },
+  { id: 2, icon: "fa-font", value: "Text" },
+  { id: 3, icon: "fa-left-right", value: "Slot" },
 ];
 
 const { v } = useVariantAddEditRules({ name: componentName });
@@ -45,7 +45,7 @@ function onSubmit() {
   } else {
     const addBody = {
       name: componentName.value,
-      type: componentPhasesOptions[componentType.value].name,
+      type: componentPhasesOptions[componentType.value].value,
       component: props.component.id,
     };
     createComponentOption(addBody).then(() => {

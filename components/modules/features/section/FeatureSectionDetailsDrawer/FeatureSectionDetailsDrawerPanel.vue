@@ -1,28 +1,28 @@
 <script setup>
 const componentPhasesOptions = [
-  { id: 0, name: "primary" },
-  { id: 1, name: "secondary" },
-  { id: 2, name: "plain" },
+  { id: 0, value: "primary" },
+  { id: 1, value: "secondary" },
+  { id: 2, value: "plain" },
 ];
 
 const componentSizesOptions = [
-  { id: 0, name: "small" },
-  { id: 1, name: "medium" },
-  { id: 2, name: "large" },
+  { id: 0, value: "small" },
+  { id: 1, value: "medium" },
+  { id: 2, value: "large" },
 ];
 
 const pages = [
   {
     id: 1,
-    name: "Variants",
+    value: "Variants",
   },
   {
     id: 2,
-    name: "Playground",
+    value: "Playground",
   },
   {
     id: 3,
-    name: "Tokens",
+    value: "Tokens",
   },
 ];
 const activePage = ref(1);

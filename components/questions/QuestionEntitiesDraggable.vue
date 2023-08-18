@@ -31,9 +31,6 @@ function moveCardInSameColumn(columnType, dropResult) {
     (item) => item.id !== removedItem.id
   )[dropResult.addedIndex];
 
-  console.log("Removed:", removedItem);
-  console.log("Added:", addedItem);
-
   emit("onCardDrop", removedItem, addedItem);
 }
 
@@ -44,7 +41,7 @@ function onCardDrop(columnType, dropResult) {
 }
 
 function log(e) {
-  console.log(e);
+  // console.log(e);
 }
 
 const dropPlaceholderOptions = {

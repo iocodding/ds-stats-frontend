@@ -29,8 +29,13 @@ const types = [
   },
 ];
 
-const currentOption = computed(() =>
-  types.find((type) => type.value === props.value)
+const currentOption = computed(
+  () =>
+    types.find((type) => type.value === props.value) || {
+      value: "Proposed",
+      title: "Proposed",
+      color: "danger",
+    }
 );
 </script>
 

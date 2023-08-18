@@ -9,7 +9,6 @@ export const useComponentsOptionsLoader = ({component}) => {
     select: (res) => {
 
       const normalize =  res.data.data.map((entry) => {
-        console.log(entry.id)
         return {
           ...entry.attributes,
           id: entry.id,

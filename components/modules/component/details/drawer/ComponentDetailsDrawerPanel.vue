@@ -35,6 +35,9 @@ const activePage = ref(1);
       :component="selected"
       v-if="activePage === 1"
     />
-    <ComponentDetailsDrawerPanelPlayground v-if="activePage === 2" />
+    <ComponentDetailsDrawerPanelPlayground
+      v-if="activePage === 2"
+      :component="selected"
+    />
   </div>
 </template>

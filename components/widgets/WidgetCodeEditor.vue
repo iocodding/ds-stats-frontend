@@ -15,54 +15,38 @@
         },
       }"
       @ready="handleReady"
-      @change="log('change', $event)"
-      @focus="log('focus', $event)"
-      @blur="log('blur', $event)"
     />
   </div>
 </template>
 
-<script>
-import { defineComponent } from "vue";
+<script setup>
 import { Codemirror } from "vue-codemirror";
 import { javascript } from "@codemirror/lang-javascript";
 import { oneDark } from "@codemirror/theme-one-dark";
 
-export default defineComponent({
-  components: {
-    Codemirror,
-  },
-  setup() {
-    const code = ref(`<DssButton \n variant="primary" \n size="small" \n/>`);
-    const extensions = [javascript(), oneDark];
-
-    // Codemirror EditorView instance ref
-    const view = shallowRef();
-    const handleReady = (payload) => {
-      view.value = payload.view;
-    };
-
-    // Status is available at all times via Codemirror EditorView
-    const getCodemirrorStates = () => {
-      const state = view.value.state;
-      const ranges = state.selection.ranges;
-      const selected = ranges.reduce(
-        (r, range) => r + range.to - range.from,
-        0
-      );
-      const cursor = ranges[0].anchor;
-      const length = state.doc.length;
-      const lines = state.doc.lines;
-      // more state info ...
-      // return ...
-    };
-
-    return {
-      code,
-      extensions,
-      handleReady,
-      log: console.log,
-    };
+const props = defineProps({
+  code: {
+    type: String,
+    default: "",
   },
 });
+console.log(props.code);
+const code = ref(props.code);
+const extensions = [javascript(), oneDark];
+
+// Codemirror EditorView instance ref
+const view = shallowRef();
+const handleReady = (payload) => {
+  view.value = payload.view;
+};
+
+// Status is available at all times via Codemirror EditorView
+const getCodemirrorStates = () => {
+  const state = view.value.state;
+  const ranges = state.selection.ranges;
+  const selected = ranges.reduce((r, range) => r + range.to - range.from, 0);
+  const cursor = ranges[0].anchor;
+  const length = state.doc.length;
+  const lines = state.doc.lines;
+};
 </script>

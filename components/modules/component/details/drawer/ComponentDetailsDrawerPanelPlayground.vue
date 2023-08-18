@@ -1,15 +1,10 @@
 <script setup>
-const componentPhasesOptions = [
-  { id: 0, name: "primary" },
-  { id: 1, name: "secondary" },
-  { id: 2, name: "plain" },
-];
-
-const componentSizesOptions = [
-  { id: 0, name: "small" },
-  { id: 1, name: "medium" },
-  { id: 2, name: "large" },
-];
+const props = defineProps({
+  component: {
+    type: Object,
+    default: () => {},
+  },
+});
 </script>
 <template>
   <div class="flex w-full flex-col gap-4">
@@ -19,11 +14,7 @@ const componentSizesOptions = [
       <img src="/buttonPrimary.png" class="w-28" />
     </div>
     <div class="flex w-full gap-4">
-      <WidgetCodeEditor class="w-full flex-grow" />
-      <div class="w-full flex-grow flex flex-col gap-2">
-        <DssSelect label="Variant" :options="componentPhasesOptions" />
-        <DssSelect label="Size" :options="componentSizesOptions" class="mb-4" />
-      </div>
+      <PlaygroundInputs :component="component" />
     </div>
   </div>
 </template>

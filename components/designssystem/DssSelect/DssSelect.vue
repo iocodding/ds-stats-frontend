@@ -4,6 +4,10 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  labelIcon: {
+    type: String,
+    default: null,
+  },
   modelValue: {
     type: Number,
     default: 0,
@@ -23,9 +27,10 @@ const selected = ref(0);
 </script>
 <template>
   <div class="relative inline-flex w-full flex-col">
-    <label v-if="label" class="block text-sm font-medium mb-1">{{
-      label
-    }}</label>
+    <label v-if="label" class="block text-sm font-medium mb-1">
+      <DssIcon v-if="labelIcon" :icon="labelIcon" class="text-xs mr-1" />
+      {{ label }}</label
+    >
 
     <button
       ref="trigger"
@@ -37,13 +42,14 @@ const selected = ref(0);
       :aria-expanded="dropdownOpen"
     >
       <span class="flex items-center">
-        <div>
+        <div v-if="options[modelValue]">
           <DssIcon
-            v-if="options[modelValue].icon"
-            :icon="options[modelValue].icon"
+            v-if="options[modelValue]?.icon"
+            :icon="options[modelValue]?.icon"
+            :class="options[modelValue]?.iconClass"
             class="mr-2 text-xs"
           />
-          <span>{{ options[modelValue].name }}</span>
+          <span>{{ options[modelValue].value }}</span>
         </div>
       </span>
       <svg
@@ -77,12 +83,12 @@ const selected = ref(0);
           @focusout="dropdownOpen = false"
         >
           <button
-            v-for="option in options"
+            v-for="(option, index) in options"
             :key="option.id"
             class="flex items-center justify-between w-full hover:bg-slate-50 dark:hover:bg-slate-700/20 py-2 px-3 cursor-pointer"
             :class="option.id === modelValue && 'text-indigo-500'"
             @click="
-              $emit('update:modelValue', option.id);
+              $emit('update:modelValue', index);
               dropdownOpen = false;
             "
           >
@@ -90,9 +96,10 @@ const selected = ref(0);
               <DssIcon
                 v-if="option.icon"
                 :icon="option.icon"
+                :class="option.iconClass"
                 class="mr-2 text-xs"
               />
-              <span>{{ option.name }}</span>
+              <span>{{ option.value }}</span>
             </div>
 
             <svg
