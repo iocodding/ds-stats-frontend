@@ -3,7 +3,7 @@
     <codemirror
       v-model="code"
       placeholder="Code goes here..."
-      :style="{ height: '200px' }"
+      :style="{ height: '300px' }"
       :autofocus="true"
       :indent-with-tab="true"
       :tab-size="2"
@@ -30,7 +30,6 @@ const props = defineProps({
     default: "",
   },
 });
-console.log(props.code);
 const code = ref(props.code);
 const extensions = [javascript(), oneDark];
 

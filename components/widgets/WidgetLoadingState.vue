@@ -11,11 +11,11 @@ const props = defineProps({
 });
 </script>
 <template>
-  <slot name="skeleton" v-if="!state.data.value" />
-  <template v-if="state.data.value">
+  <slot name="skeleton" v-if="!state.value" />
+  <template v-if="state.value">
     <slot
       name="result"
-      :data="{ ...state.normalize(state.data.value, optimisticData) }"
+      :data="{ ...state.normalize(state.value, optimisticData) }"
     />
   </template>
 </template>

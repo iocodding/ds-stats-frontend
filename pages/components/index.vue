@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+const { isSuccess, isFetching } = useDesignSystemLoader({ id: 1 });
+</script>
 <template>
-  <ComponentPage />
+  <ComponentPage v-if="!isFetching || isSuccess" />
 </template>

@@ -6,24 +6,17 @@ const props = defineProps({
   },
 });
 
-function getColorClassFromStatus(status) {
-  if (status === "InProgress") {
-    return "text-yellow-500";
-  }
-  return "text-green-500";
-}
-
-const componentSizesOptions = props.option.component_option_variants.data.map(
-  (variant) => {
+const componentSizesOptions = computed(() =>
+  props.option.component_option_variants.map((variant) => {
     return {
       optionId: props.option.id,
       id: variant.id,
       name: props.option.name,
-      value: variant.attributes.name,
+      value: variant.name,
       icon: "fa-circle",
-      iconClass: getColorClassFromStatus(variant.attributes.status),
+      iconClass: variant.component_option_status?.textClass || "text-gray-400",
     };
-  }
+  })
 );
 const selectedSize = ref(0);
 </script>

@@ -1,10 +1,12 @@
 <script setup>
-const toggle1 = ref("On");
-
 const props = defineProps({
   label: {
     type: String,
     default: null,
+  },
+  modelValue: {
+    type: Boolean,
+    default: false,
   },
 });
 </script>
@@ -16,9 +18,8 @@ const props = defineProps({
         type="checkbox"
         id="toggle1"
         class="sr-only"
-        v-model="toggle1"
-        true-value="On"
-        false-value="Off"
+        :value="modelValue"
+        @input="(event) => $emit('update:modelValue', event.target.checked)"
       />
       <label class="bg-slate-400 dark:bg-slate-700" for="toggle1">
         <span class="bg-white shadow-sm" aria-hidden="true"></span>

@@ -7,14 +7,14 @@ export const useFeaturesLoader = () => {
 
     function normalize(data, optimistic) {
         if (data) {
-          const feature = JSON.parse(data).data.attributes;
+          const feature = JSON.parse(data).data;
           if(optimistic.length) {
             return optimistic
           }
           else {
-            feature.feature_entities = feature.feature_entities.data.map((entry) => {
+            feature.feature_entities = feature.feature_entities.map((entry) => {
               return { 
-                ...entry.attributes,
+                ...entry,
               id: entry.id
           }
         });

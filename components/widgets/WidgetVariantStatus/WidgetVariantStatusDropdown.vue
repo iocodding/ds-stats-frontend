@@ -6,28 +6,9 @@ const props = defineProps({
   },
 });
 
-const types = [
-  {
-    value: "Proposed",
-    title: "Proposed",
-    color: "danger",
-  },
-  {
-    value: "InProgress",
-    title: "In Design",
-    color: "warning",
-  },
-  {
-    value: "InDevelopment",
-    title: "In Development",
-    color: "warning",
-  },
-  {
-    value: "Stable",
-    title: "Stable",
-    color: "success",
-  },
-];
+const { data: currentSystem, isFetching } = useDesignSystemLoader({ id: 1 });
+
+const mypes = computed(() => currentSystem.component_option_statuses);
 
 const currentOption = computed(
   () =>
@@ -40,6 +21,13 @@ const currentOption = computed(
 </script>
 
 <template>
+  <div v-if="currentSystem && !isFetching">
+    {{ currentSystem.component_option_statuses }}
+  </div>
+  {{ isFetching }}
+  ss
+  {{ mypes }}
+  <!-- {{ currentSystem }} -->
   <DssOptionsMenu>
     <template #activator>
       <DssBadge :text="currentOption.title" :color="currentOption.color" />

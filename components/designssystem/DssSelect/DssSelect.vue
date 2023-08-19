@@ -46,7 +46,7 @@ const selected = ref(0);
           <DssIcon
             v-if="options[modelValue]?.icon"
             :icon="options[modelValue]?.icon"
-            :class="options[modelValue]?.iconClass"
+            :class="`dark:${options[modelValue]?.iconClass}`"
             class="mr-2 text-xs"
           />
           <span>{{ options[modelValue].value }}</span>
@@ -96,7 +96,7 @@ const selected = ref(0);
               <DssIcon
                 v-if="option.icon"
                 :icon="option.icon"
-                :class="option.iconClass"
+                :class="`dark:${option.iconClass}`"
                 class="mr-2 text-xs"
               />
               <span>{{ option.value }}</span>

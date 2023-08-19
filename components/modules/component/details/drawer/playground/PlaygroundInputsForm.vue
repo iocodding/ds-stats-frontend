@@ -13,13 +13,32 @@ function onUpdateOption(value, option) {
   selections.value[selectionIndex] = value;
 }
 
+function getSelectionName(option) {
+  if (option.type === "Variant") {
+    return option.component_option_variants[0].name;
+  }
+  if (option.type === "Boolean") {
+    return false;
+  }
+
+  return "No Name";
+}
+
+function getSelectionStatus(option) {
+  if (option.type === "Variant") {
+    return option.component_option_variants[0].status;
+  }
+
+  return "No Name";
+}
+
 const selections = ref(
   props.options.map((option) => {
     return {
       optionId: option.id,
       name: option.name,
-      value: option.component_option_variants.data[0].attributes.name,
-      status: option.component_option_variants.data[0].attributes.status,
+      value: getSelectionName(option),
+      status: getSelectionStatus(option),
     };
   })
 );
@@ -27,7 +46,7 @@ const codeStart = `<DssButton \n`;
 const codeProps = computed(() =>
   selections.value
     .map((selection) => {
-      return `  ${selection.name}="${selection.value}" \n`;
+      return `  ${selection.name}="${selection.value}" \n `;
     })
     .join("")
 );
@@ -35,12 +54,6 @@ const codeEnd = `/>`;
 </script>
 <template>
   <div class="flex w-full gap-4">
-    <!-- <div>
-      <p v-for="selection in selections">
-        {{ selection.optionId }}: {{ selection.value }}
-      </p>
-    </div> -->
-    {{ sortedItems }}
     <WidgetCodeEditor
       :key="codeProps"
       :code="`${codeStart}${codeProps}${codeEnd}`"
@@ -51,6 +64,11 @@ const codeEnd = `/>`;
       <div v-for="option in options">
         <PlaygroundInputsFormVariant
           v-if="option.type === 'Variant'"
+          :option="option"
+          @onUpdate="onUpdateOption($event, option)"
+        />
+        <PlaygroundInputsFormBoolean
+          v-if="option.type === 'Boolean'"
           :option="option"
           @onUpdate="onUpdateOption($event, option)"
         />

@@ -8,27 +8,26 @@
     >
       <slot name="activator" />
     </div>
-
-    <transition
-      enter-active-class="transition ease-out duration-200 transform"
+    <!-- enter-active-class="transition ease-out duration-200 transform"
       enter-from-class="opacity-0 -translate-y-2"
       enter-to-class="opacity-100 translate-y-0"
       leave-active-class="transition ease-out duration-200"
       leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
-    >
+      leave-to-class="opacity-0" -->
+    <transition>
       <div
         v-show="dropdownOpen"
         class="origin-top-right z-10 absolute top-full min-w-44 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 py-1.5 rounded shadow-lg overflow-hidden mt-1"
         :class="align === 'right' ? 'right-0' : 'left-0'"
+        @click="dropdownOpen = false"
       >
         <slot />
       </div>
     </transition>
   </div>
 </template>
-  
-  <script>
+
+<script>
 import { ref, onMounted, onUnmounted } from "vue";
 
 export default {
@@ -41,12 +40,12 @@ export default {
 
     // close on click outside
     const clickHandler = ({ target }) => {
-      if (
-        !dropdownOpen.value ||
-        dropdown.value.contains(target) ||
-        trigger.value.contains(target)
-      )
-        return;
+      // if (
+      //   !dropdownOpen.value ||
+      //   dropdown?.value.contains(target) ||
+      //   trigger.value.contains(target)
+      // )
+      return;
       dropdownOpen.value = false;
     };
 

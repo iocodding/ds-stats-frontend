@@ -5,18 +5,10 @@ export const useComponentsOptionsLoader = ({component}) => {
   const state = useQuery({
     queryKey: ["component-options"],
     queryFn: () =>
-      axios.call("get", `http://localhost:1337/api/component-options?populate=*&filters[component][id]=${component.id}`),
-    select: (res) => {
-
-      const normalize =  res.data.data.map((entry) => {
-        return {
-          ...entry.attributes,
-          id: entry.id,
-        };
-      });
-      
-      return normalize;
-    },
+      axios.call("get", `http://localhost:1337/api/component-options?populate=deep&filters[component][id]=${component.id}`),
+      select: (res) => {      
+        return res.data.data
+     }
   });
 
   return state;

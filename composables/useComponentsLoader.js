@@ -6,17 +6,9 @@ export const useComponentsLoader = () => {
     queryKey: ["components"],
     queryFn: () =>
       axios.call("get", "http://localhost:1337/api/components"),
-    select: (res) => {
-
-      const normalize =  res.data.data.map((entry) => {
-        return {
-          ...entry.attributes,
-          id: entry.id,
-        };
-      });
-      
-      return normalize;
-    },
+      select: (res) => {      
+        return res.data.data
+     }
   });
 
   return state;

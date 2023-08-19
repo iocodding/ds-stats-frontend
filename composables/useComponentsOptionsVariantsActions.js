@@ -22,10 +22,10 @@ export function useComponentsOptionsVariantsActions() {
       })
       return promise;
     },
-    updateComponent(component) {
+    updateComponentOptionVariant(componentOptionVariant) {
       loading.value = true
-      const promise = axios.put(`http://localhost:1337/api/components/${component.id}`, { data: component }).then(() => {
-        queryClient.invalidateQueries({ queryKey: ['components'] })
+      const promise = axios.put(`http://localhost:1337/api/component-option-variants/${componentOptionVariant.id}`, { data: componentOptionVariant }).then(() => {
+        queryClient.invalidateQueries({ queryKey: ['component-options'] })
       }).finally(() => {
         loading.value = false
       })

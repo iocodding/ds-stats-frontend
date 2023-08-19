@@ -39,7 +39,7 @@ function onDeleteComponentOptionVariant(componentOptionVariant) {
     </div>
     <!-- <ul class="my-1">
       <li
-        v-for="variant in option.component_option_variants.data"
+        v-for="variant in option.component_option_variants"
         class="flex px-2"
       >
         <ComponentOptionVariantStatus :type="option.type" />
@@ -52,12 +52,12 @@ function onDeleteComponentOptionVariant(componentOptionVariant) {
                 @click="$emit('onEditVariant', item)"
                 class="font-medium cursor-pointer hover:underline text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white"
               >
-                {{ variant.attributes.name }}
+                {{ variant.name }}
               </a>
             </div>
             <div class="shrink-0 self-end ml-2 flex gap-2">
               <WidgetVariantStatus
-                :value="variant.attributes.status || 'Proposed'"
+                :value="variant.status || 'Proposed'"
               />
               <FeatureDetailsVariantsOptions
                 @onEdit="$emit('onEditVariant', item)"

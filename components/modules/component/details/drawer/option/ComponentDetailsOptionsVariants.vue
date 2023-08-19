@@ -5,10 +5,19 @@ const props = defineProps({
     required: true,
   },
 });
-const { deleteComponentOptionVariant } = useComponentsOptionsVariantsActions();
+const { deleteComponentOptionVariant, updateComponentOptionVariant } =
+  useComponentsOptionsVariantsActions();
 
 function onDeleteComponentOptionVariant(componentOptionVariant) {
   deleteComponentOptionVariant(componentOptionVariant);
+}
+
+function onUpdateStatus(status, variant) {
+  const body = {
+    id: variant.id,
+    component_option_status: status.id,
+  };
+  updateComponentOptionVariant(body);
 }
 </script>
 <template>
@@ -19,10 +28,7 @@ function onDeleteComponentOptionVariant(componentOptionVariant) {
     />
     <ul class="my-1">
       <!-- Item -->
-      <li
-        v-for="variant in option.component_option_variants.data"
-        class="flex px-2"
-      >
+      <li v-for="variant in option.component_option_variants" class="flex px-2">
         <ComponentOptionVariantStatus :type="option.type" />
         <div
           class="grow flex items-centerborder-slate-100 dark:border-slate-700 text-sm py-2"
@@ -33,12 +39,13 @@ function onDeleteComponentOptionVariant(componentOptionVariant) {
                 @click="$emit('onEditVariant', item)"
                 class="font-medium cursor-pointer hover:underline text-slate-800 hover:text-slate-900 dark:text-slate-100 dark:hover:text-white"
               >
-                {{ variant.attributes.name }}
+                {{ variant.name }}
               </a>
             </div>
             <div class="shrink-0 self-end ml-2 flex gap-2">
               <WidgetVariantStatus
-                :value="variant.attributes.status || 'Proposed'"
+                :selectedId="variant.component_option_status?.id || 0"
+                @onUpdate="onUpdateStatus($event, variant)"
               />
               <FeatureDetailsVariantsOptions
                 @onEdit="$emit('onEditVariant', item)"
