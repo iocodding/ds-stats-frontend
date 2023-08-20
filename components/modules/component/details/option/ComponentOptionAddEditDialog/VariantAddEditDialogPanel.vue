@@ -32,6 +32,8 @@ const {
   loading,
 } = useComponentOptionsActions();
 
+const { createComponentOptionBoolean } = useComponentOptionBooleanActions();
+
 function onSubmit() {
   if (isEditMode.value) {
     const updateBody = {
@@ -48,7 +50,13 @@ function onSubmit() {
       type: componentPhasesOptions[componentType.value].value,
       component: props.component.id,
     };
-    createComponentOption(addBody).then(() => {
+    createComponentOption(addBody).then((response) => {
+      if (addBody.type === "Boolean") {
+        createComponentOptionBoolean({
+          name: addBody.name,
+          component_option: response.data.data.id,
+        });
+      }
       emit("close");
     });
   }

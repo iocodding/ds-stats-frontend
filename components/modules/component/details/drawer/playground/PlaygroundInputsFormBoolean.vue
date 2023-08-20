@@ -18,7 +18,11 @@ const componentOption = computed(() => {
 </script>
 <template>
   <div class="flex gap-2 items-center">
-    <DssIcon icon="fa-circle" class="text-xs text-green-500" />
+    <DssIcon
+      icon="fa-circle"
+      class="text-xs"
+      :class="`dark:${option.component_option_boolean.component_option_status.textClass}`"
+    />
     <DssSwitch
       v-model="booleanValue"
       :label="option.name"
