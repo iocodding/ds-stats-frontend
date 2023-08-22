@@ -1,61 +1,8 @@
-<script setup>
-const componentPhasesOptions = [
-  { id: 0, value: "primary" },
-  { id: 1, value: "secondary" },
-  { id: 2, value: "plain" },
-];
-
-const componentSizesOptions = [
-  { id: 0, value: "small" },
-  { id: 1, value: "medium" },
-  { id: 2, value: "large" },
-];
-
-const pages = [
-  {
-    id: 1,
-    value: "Variants",
-  },
-  {
-    id: 2,
-    value: "Playground",
-  },
-  {
-    id: 3,
-    value: "Tokens",
-  },
-];
-const activePage = ref(1);
-</script>
+<script setup></script>
 <template>
-  <div class="flex flex-col w-full">
-    <DssTabs>
-      <DssTab
-        v-for="page in pages"
-        :name="page.name"
-        @click="activePage = page.id"
-        :active="activePage === page.id"
-      />
-    </DssTabs>
-    <ComponentDetailsOptions v-if="activePage === 1" class="mt-4" />
+  <div class="flex flex-col w-full gap-4">
+    <WidgetRandomCard />
 
-    <div v-if="activePage === 2" class="flex w-full flex-col gap-4">
-      <div
-        class="w-full h-64 object-cover bg-slate-900 flex justify-center items-center"
-      >
-        <img src="/buttonPrimary.png" class="w-28" />
-      </div>
-      <div class="flex w-full gap-4">
-        <WidgetCodeEditor class="w-full flex-grow" />
-        <div class="w-full flex-grow flex flex-col gap-2">
-          <DssSelect label="Variant" :options="componentPhasesOptions" />
-          <DssSelect
-            label="Size"
-            :options="componentSizesOptions"
-            class="mb-4"
-          />
-        </div>
-      </div>
-    </div>
+    <FeatureSectionComponentTable />
   </div>
 </template>

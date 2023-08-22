@@ -1,4 +1,11 @@
 <script setup>
+const props = defineProps({
+  system: {
+    type: Object,
+    default: () => {},
+  },
+});
+
 const selectedComponent = ref(null);
 
 const addEditDialogOpen = ref(false);
@@ -38,11 +45,13 @@ function onAddEditDialogClose() {
   <div>
     <FeatureToolbar @onCreate="onAddEdit" />
     <ComponentTable
+      :system="system"
       @onEdit="onEdit"
       @onManage="onManage"
       @onDelete="onDelete"
     />
     <ComponentAddEditDialog
+      :system="system"
       :open="addEditDialogOpen"
       :selected="selectedComponent"
       @close="onAddEditDialogClose"

@@ -6,6 +6,10 @@ const props = defineProps({
     type: Object,
     default: null,
   },
+  system: {
+    type: Object,
+    default: () => {},
+  },
 });
 
 const emit = defineEmits(["close"]);
@@ -14,23 +18,36 @@ const isEditMode = ref(!!props.selected);
 const componentName = ref(props.selected?.name);
 const componentVersion = ref(props.selected?.version || "1.0.0");
 const componentNotes = ref(props.selected?.notes);
+const selectedSection = ref(0);
 
-const componentSectionOptopn = [
-  { id: 0, value: "Inputs" },
-  { id: 1, value: "Overlays" },
-  { id: 2, value: "Display" },
-  { id: 3, value: "Generic" },
-];
+const componentSectionOptions = props.system.design_system_sections.map(
+  (section) => {
+    return {
+      id: section.id,
+      value: section.name,
+    };
+  }
+);
 
 const { v } = useComponentAddEditRules({ name: componentName });
 const { createComponent, updateComponent, loading } = useComponentActions();
+
+const route = useRoute();
 
 function onSubmit() {
   const body = {
     name: componentName.value,
     version: componentVersion.value,
     notes: componentNotes.value,
+    design_system: route.params.id || 1,
   };
+
+  console.log();
+  if (componentSectionOptions[selectedSection.value]) {
+    body.design_system_section =
+      componentSectionOptions[selectedSection.value].id;
+  }
+
   if (isEditMode.value) {
     updateComponent({ ...body, id: props.selected.id }).then(() => {
       emit("close");
@@ -48,19 +65,6 @@ function validate() {
     onSubmit();
   }
 }
-
-const pages = [
-  {
-    id: 1,
-    name: "General",
-  },
-  {
-    id: 2,
-    name: "Code",
-  },
-];
-
-const selectedItemId = ref(1);
 </script>
 
 <template>
@@ -72,14 +76,6 @@ const selectedItemId = ref(1);
     @submit="validate"
   >
     <div class="flex flex-col gap-2">
-      <!-- <DssTabs>
-        <DssTab
-          v-for="page in pages"
-          :name="page.name"
-          @click="selectedItemId = page.id"
-          :active="selectedItemId === page.id"
-        />
-      </DssTabs> -->
       <DssInput
         v-model="componentName"
         autofocus
@@ -94,7 +90,11 @@ const selectedItemId = ref(1);
         label="Version *"
         :errorMessage="v.name.$errors[0]?.$message"
       />
-      <DssSelect label="Status" :options="componentSectionOptopn" />
+      <DssSelect
+        v-model="selectedSection"
+        label="Section"
+        :options="componentSectionOptions"
+      />
       <DssTextarea
         v-model="componentNotes"
         label="Notes"

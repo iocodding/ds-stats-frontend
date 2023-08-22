@@ -119,15 +119,15 @@
               </svg>
             </SidebarLinkGroup>
             <SidebarLinkGroup
-              to="/contributions"
-              name="Templates"
-              :activeCondition="route.fullPath.includes('contributions')"
+              to="/systems"
+              name="Community"
+              :activeCondition="route.fullPath.includes('systems')"
             >
               <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                 <path
                   class="fill-current"
                   :class="
-                    route.fullPath.includes('contributions')
+                    route.fullPath.includes('systems')
                       ? 'text-indigo-500'
                       : 'text-slate-600'
                   "
@@ -136,7 +136,7 @@
                 <path
                   class="fill-current"
                   :class="
-                    route.fullPath.includes('contributions')
+                    route.fullPath.includes('systems')
                       ? 'text-indigo-300'
                       : 'text-slate-400'
                   "

@@ -8,6 +8,10 @@ const props = defineProps({
     type: Object,
     default: null,
   },
+  system: {
+    type: Object,
+    default: () => {},
+  },
 });
 
 const emit = defineEmits(["close"]);
@@ -18,6 +22,10 @@ const emit = defineEmits(["close"]);
     title="Create Component"
     @close="emit('close')"
   >
-    <ComponentAddEditDialogPanel @close="emit('close')" :selected="selected" />
+    <ComponentAddEditDialogPanel
+      @close="emit('close')"
+      :selected="selected"
+      :system="system"
+    />
   </WidgetDialog>
 </template>

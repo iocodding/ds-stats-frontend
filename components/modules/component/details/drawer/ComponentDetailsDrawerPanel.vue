@@ -15,7 +15,19 @@ const pages = [
     name: "Playground",
   },
   {
+    id: 6,
+    name: "Meta Data",
+  },
+  {
     id: 3,
+    name: "Issues",
+  },
+  {
+    id: 4,
+    name: "Contributions",
+  },
+  {
+    id: 5,
     name: "Tokens",
   },
 ];

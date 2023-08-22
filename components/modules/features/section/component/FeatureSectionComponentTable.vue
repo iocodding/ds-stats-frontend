@@ -1,30 +1,12 @@
 <script setup>
 const route = useRoute();
 
-const { data: components } = useComponentsLoader(route.params.id || 1);
+const { data: components } = useFeatureSectionComponentsLoader(1);
 const activeId = ref(0);
 const columns = [
   {
     name: "Name",
     val: "name",
-  },
-  {
-    name: "Section",
-    val: "design_system_section",
-  },
-  {
-    name: "Version",
-    val: "version",
-  },
-  {
-    name: "Created at",
-    val: "createdAt",
-  },
-  {
-    name: "Menu",
-    val: "menu",
-    alignRight: "w-px",
-    hidden: true,
   },
 ];
 </script>
@@ -45,8 +27,8 @@ const columns = [
         </div>
         <span
           @click="$emit('onManage', item)"
-          class="cursor-pointer hover:underline"
-          >{{ item.name }}</span
+          class="cursor-pointer hover:underline font-medium text-sky-500"
+          >{{ item.component.name }}</span
         >
       </div>
     </template>
@@ -75,5 +57,4 @@ const columns = [
       </div>
     </template>
   </DssTable>
-  <DssTablePagination />
 </template>

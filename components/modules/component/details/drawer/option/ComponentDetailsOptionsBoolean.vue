@@ -23,7 +23,7 @@ function onUpdateStatus(status, variant) {
       @onEdit="$emit('onEditOption', option)"
     />
 
-    <div class="flex px-2" v-if="option.component_option_boolean">
+    <div class="flex px-2" v-if="option?.component_option_boolean">
       <ComponentOptionVariantStatus :type="option.type" />
       <div
         class="grow flex items-centerborder-slate-100 dark:border-slate-700 text-sm py-2"

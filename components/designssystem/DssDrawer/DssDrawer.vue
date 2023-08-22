@@ -8,6 +8,10 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  widthClass: {
+    type: String,
+    default: "sm:w-[890px]",
+  },
 });
 </script>
 
@@ -19,7 +23,8 @@ const props = defineProps({
     style="position: fixed"
   >
     <div
-      class="sticky top-16 bg-slate-50 dark:bg-gradient-to-b dark:from-slate-800 dark:to-slate-900 overflow-x-hidden overflow-y-auto no-scrollbar shrink-0 border-l border-slate-200 dark:border-slate-700 w-full sm:w-[890px] h-[calc(100dvh)]"
+      class="sticky top-16 bg-slate-50 dark:bg-gradient-to-b dark:from-slate-800 dark:to-slate-900 overflow-x-hidden overflow-y-auto no-scrollbar shrink-0 border-l border-slate-200 dark:border-slate-700 w-full h-[calc(100dvh)]"
+      :class="widthClass"
     >
       <button
         ref="closeBtn"

@@ -16,7 +16,8 @@ const props = defineProps({
     :title="selected?.name"
     :selected="selected"
     @close="$emit('close')"
+    widthClass="sm:w-[1090px]"
   >
-    <FeatureDetailsDrawerPanel v-if="open" />
+    <FeatureSectionDetailsDrawerPanel v-if="open" />
   </DssDrawer>
 </template>
