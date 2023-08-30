@@ -9,7 +9,7 @@ const {
 
 const addInputSection = ref(null);
 const addEntityModel = ref("");
-asdasd
+// code 
 const columns = [
   { title: "❓Questions", type: "question" },
   { title: "❌ Blockers", type: "blocker" },
