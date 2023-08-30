@@ -31,7 +31,8 @@
     >
       <div
         ref="modalContent"
-        class="bg-white dark:bg-slate-800 rounded shadow-lg overflow-auto max-w-lg w-full max-h-full inline-table"
+        class="bg-white dark:bg-slate-800 rounded shadow-lg overflow-auto w-full max-h-full inline-table max-w-lg"
+        :class="widthClass"
       >
         <!-- Modal header -->
         <div class="px-5 py-3 border-b border-slate-200 dark:border-slate-700">
@@ -57,12 +58,20 @@
     </div>
   </transition>
 </template>
+<script setup>
+// const props = defineProps({
+//   widthClass: {
+//     type: String,
+//     default: "max-w-lg",
+//   },
+// });
+</script>
 <script>
 import { ref, onMounted, onUnmounted } from "vue";
 
 export default {
   name: "ModalBasic",
-  props: ["id", "modalOpen", "title"],
+  props: ["id", "modalOpen", "title", "widthClass"],
   emits: ["close"],
   setup(props, { emit }) {
     const modalContent = ref(null);

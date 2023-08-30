@@ -4,6 +4,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  widthClass: {
+    type: String,
+    default: "",
+  },
 });
 
 const hideContent = ref(false);
@@ -29,6 +33,7 @@ watch(
     :modalOpen="modalOpen"
     @close="$emit('close')"
     title="Update Component"
+    :widthClass="widthClass"
   >
     <slot v-if="hideContent" />
   </DssDialog>

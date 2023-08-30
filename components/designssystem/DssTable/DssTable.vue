@@ -31,12 +31,25 @@ const props = defineProps({
       <table
         class="table-auto w-full dark:text-slate-300 divide-y divide-slate-200 dark:divide-slate-700"
       >
-        <DssTableHead :columns="columns" />
+        <DssTableHead :columns="columns">
+          <template #append>
+            <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
+              <div class="flex items-center">
+                <input class="form-checkbox" type="checkbox" />
+              </div>
+            </th>
+          </template>
+        </DssTableHead>
         <tbody class="text-sm divide-slate-200 dark:divide-slate-700 divide-y">
           <tr
             v-for="item in items"
             :class="activeId === item.id && 'bg-slate-900/30'"
           >
+            <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
+              <div class="flex items-center">
+                <input class="form-checkbox" type="checkbox" />
+              </div>
+            </td>
             <td
               v-for="column in columns"
               class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap"

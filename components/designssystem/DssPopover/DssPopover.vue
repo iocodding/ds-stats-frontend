@@ -1,7 +1,7 @@
 <template>
   <div class="relative inline-flex">
     <div
-      class="select-none"
+      :class="`select-none ${widthClass}`"
       aria-haspopup="true"
       @click.prevent="dropdownOpen = !dropdownOpen"
       :aria-expanded="dropdownOpen"
@@ -14,12 +14,12 @@
       leave-active-class="transition ease-out duration-200"
       leave-from-class="opacity-100"
       leave-to-class="opacity-0" -->
-    <transition>
+    <transition v-if="dropdownOpen">
       <div
         v-show="dropdownOpen"
-        class="origin-top-right z-10 absolute top-full min-w-44 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 py-1.5 rounded shadow-lg overflow-hidden mt-1"
-        :class="align === 'right' ? 'right-0' : 'left-0'"
-        @click="dropdownOpen = false"
+        :class="`origin-top-right z-10 absolute top-full min-w-44 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 py-1.5 rounded shadow-lg overflow-hidden mt-1 ${
+          align === 'right' ? 'right-0' : 'left-0'
+        } ${widthClass}`"
       >
         <slot />
       </div>
@@ -32,7 +32,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 
 export default {
   name: "DropdownHelp",
-  props: ["align"],
+  props: ["align", "widthClass", "preventContentClose"],
   setup() {
     const dropdownOpen = ref(false);
     const trigger = ref(null);

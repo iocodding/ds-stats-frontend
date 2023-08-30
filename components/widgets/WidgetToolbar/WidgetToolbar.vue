@@ -1,4 +1,15 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+  title: {
+    type: String,
+    default: "Templates ✨",
+  },
+  buttonText: {
+    type: String,
+    default: "Add template",
+  },
+});
+</script>
 <template>
   <div class="sm:flex sm:justify-between sm:items-center mb-8">
     <!-- Left: Title -->
@@ -6,7 +17,7 @@
       <h1
         class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold"
       >
-        Templates ✨
+        {{ title }}
       </h1>
     </div>
     <!-- Right: Actions  -->
@@ -25,7 +36,7 @@
             d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z"
           />
         </svg>
-        <span class="hidden xs:block ml-2">Add Template</span>
+        <span class="hidden xs:block ml-2">{{ buttonText }}</span>
       </button>
     </div>
   </div>

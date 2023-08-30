@@ -2,6 +2,7 @@
 const manageDrawerOpen = ref(false);
 </script>
 <template>
+  <WidgetToolbar title="Sections" buttonText="Add Section" />
   <div class="grid grid-cols-12 gap-6">
     <DssCard
       title="Add Edit Customer Modal"

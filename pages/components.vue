@@ -12,6 +12,14 @@ const pages = [
     name: "Contributions",
     to: "/components/gallery",
   },
+  {
+    name: "Picker",
+    to: "/components/picker",
+  },
+  {
+    name: "Figma",
+    to: "/components/figmaapi",
+  },
 ];
 </script>
 <template>

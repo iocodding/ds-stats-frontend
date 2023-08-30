@@ -17,7 +17,7 @@ const props = defineProps({
         >
           <div>
             <router-link
-              :to="`/features/${item.id}`"
+              :to="`/features/${item.id}/sections`"
               class="text-sm font-medium text-slate-800 dark:text-slate-100 hover:underline"
             >
               {{ item.name }}

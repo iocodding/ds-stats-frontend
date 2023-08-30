@@ -19,8 +19,8 @@ const chip = tv({
 
 const props = defineProps({
   text: {
-    type: Boolean,
-    default: false,
+    type: String,
+    default: "",
   },
   color: {
     type: String,
@@ -31,9 +31,10 @@ const props = defineProps({
 
 <template>
   <div
-    class="text-xs inline-flex font-medium rounded-full text-center px-2.5 py-1 cursor-pointer"
+    class="text-xs inline-flex font-medium rounded-full text-center px-2.5 py-1 cursor-pointer items-center"
     :class="chip({ color: color })"
   >
+    <slot></slot>
     {{ text }}
   </div>
 </template>
