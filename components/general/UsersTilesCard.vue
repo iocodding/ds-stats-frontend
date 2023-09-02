@@ -3,7 +3,7 @@
     class="col-span-full sm:col-span-6 xl:col-span-3 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
   >
     <img
-      :src="`https://dssspecs-backend-ibiz5.ondigitalocean.app${item.coverImage.url}`"
+      :src="`http://dssspecs-backend-ibiz5.ondigitalocean.app${item.coverImage.url}`"
     />
     <div class="flex flex-col h-full">
       <!-- Card top -->

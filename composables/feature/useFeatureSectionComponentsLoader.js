@@ -5,7 +5,7 @@ export const useFeatureSectionComponentsLoader = (sectionId = 1) => {
   const state = useQuery({
     queryKey: ["components"],
     queryFn: () =>
-      axios.call("get", `https://dssspecs-backend-ibiz5.ondigitalocean.app/api/feature-section-components?populate=deep&filters[feature_section][id][$eq]=${sectionId}`),
+      axios.call("get", `http://dssspecs-backend-ibiz5.ondigitalocean.app/api/feature-section-components?populate=deep&filters[feature_section][id][$eq]=${sectionId}`),
       select: (res) => {      
         return res.data.data
      }
