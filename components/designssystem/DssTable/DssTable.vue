@@ -16,11 +16,19 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
+  filled: {
+    type: Boolean,
+    default: true,
+  },
 });
 </script>
 <template>
   <div
-    class="bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 relative"
+    class="shadow-lg rounded-sm relative"
+    :class="
+      filled &&
+      ' bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700'
+    "
   >
     <header v-if="title" class="px-5 py-4">
       <h2 class="font-semibold text-slate-800 dark:text-slate-100">
@@ -31,25 +39,28 @@ const props = defineProps({
       <table
         class="table-auto w-full dark:text-slate-300 divide-y divide-slate-200 dark:divide-slate-700"
       >
-        <DssTableHead :columns="columns">
-          <template #append>
+        <DssTableHead :bordered="filled" :columns="columns">
+          <!-- <template #append>
             <th class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
               <div class="flex items-center">
                 <input class="form-checkbox" type="checkbox" />
               </div>
             </th>
-          </template>
+          </template> -->
         </DssTableHead>
-        <tbody class="text-sm divide-slate-200 dark:divide-slate-700 divide-y">
+        <tbody
+          class="text-sm divide-slate-200 dark:divide-slate-700 divide-y bg-white dark:bg-slate-800/30"
+        >
           <tr
             v-for="item in items"
             :class="activeId === item.id && 'bg-slate-900/30'"
+            class="dark:hover:bg-slate-900/10"
           >
-            <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
+            <!-- <td class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap w-px">
               <div class="flex items-center">
                 <input class="form-checkbox" type="checkbox" />
               </div>
-            </td>
+            </td> -->
             <td
               v-for="column in columns"
               class="px-2 first:pl-5 last:pr-5 py-3 whitespace-nowrap"

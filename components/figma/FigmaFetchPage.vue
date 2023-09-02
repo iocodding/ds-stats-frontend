@@ -10,8 +10,8 @@ function normalizeComponentsFromFile(file, libraryComponents) {
   return file.document.children.map((component) => {
     return {
       name: component.name,
-      libraryComponent: libraryComponents[component.children[0].name],
-      lib: libraryComponents,
+      // libraryComponent: libraryComponents[component.children[0].name],
+      // lib: libraryComponents,
       options: Object.values(
         component.children[0].componentPropertyDefinitions
       ).map((definition, index) => {
@@ -86,18 +86,14 @@ async function getComponents() {
 <template>
   {{ error }}
   <div class="flex justify-between items-center mb-4">
+    <div></div>
     <DssButton
       :loading="loadingComponents"
       text="Request Components"
       @click="getComponents()"
     />
-    <div class="flex items-center">
-      <div class="hidden xl:block text-sm italic mr-2 whitespace-nowrap">
-        <span>22</span> items selected
-      </div>
-      <DssButton variant="secondary" text="Sync " />
-    </div>
   </div>
+  <FigmaFetchRecources @onSync="getComponents()" :loading="loadingComponents" />
 
   <FigmaFetchComponentsTable
     v-if="figmaComponents"

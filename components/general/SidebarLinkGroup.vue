@@ -2,7 +2,7 @@
   <li class="rounded-sm mb-0.5 last:mb-0 cursor-pointer">
     <router-link
       :to="to"
-      class="block text-slate-200 truncate transition duration-150 px-3 py-3"
+      class="block text-slate-200 truncate transition duration-150 px-3 py-3 hover:bg-slate-900"
       :class="
         activeCondition
           ? 'hover:text-slate-200 bg-slate-950'

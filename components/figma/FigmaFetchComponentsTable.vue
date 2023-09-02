@@ -16,12 +16,36 @@ const columns = [
     val: "options",
   },
 ];
+
+const { updateFigmaRecourse, loading } = useFigmaActions();
+
+function updateRecourse() {
+  const recourse = {
+    id: 1,
+    components: JSON.parse(JSON.stringify(props.figmaComponents)),
+  };
+  updateFigmaRecourse(recourse);
+}
+
+console.log(props.figmaComponents);
 </script>
 <template>
+  <div class="flex justify-between">
+    <div></div>
+    <DssButton
+      :loading="loading"
+      variant="secondary"
+      text="Update Recourse"
+      @click="updateRecourse"
+    />
+  </div>
+  <!-- {{ JSON.parse(JSON.stringify(figmaComponents)) }} -->
+
   <DssTable
     title="Components"
     :columns="columns"
     :items="figmaComponents"
+    :filled="false"
     class="mb-4"
   >
     <template #name="{ item }">
@@ -29,12 +53,12 @@ const columns = [
         <div
           class="w-10 h-10 shrink-0 flex items-center justify-center bg-slate-100 dark:bg-slate-700 rounded-full mr-2 sm:mr-3"
         >
-          <img
+          <!-- <img
             v-if="item.libraryComponent && item.libraryComponent[0]"
             :src="item.libraryComponent[0].thumbnail_url"
             width="20"
             height="20"
-          />
+          /> -->
         </div>
         <span
           @click="$emit('onManage', item)"

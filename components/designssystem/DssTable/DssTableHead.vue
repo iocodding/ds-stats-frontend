@@ -4,11 +4,19 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  bordered: {
+    type: Boolean,
+    default: true,
+  },
 });
 </script>
 <template>
   <thead
-    class="text-xs uppercase text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/20 border-t border-slate-200 dark:border-slate-700"
+    class="text-xs uppercase text-slate-500 dark:text-slate-400"
+    :class="
+      bordered &&
+      'border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/20'
+    "
   >
     <tr>
       <slot name="append"></slot>
