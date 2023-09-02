@@ -1,3 +1,8 @@
+<script setup>
+// definePageMeta({
+//   middleware: ["is-admin-middleware"],
+// });
+</script>
 <template>
   <NuxtLayout>
     <main class="grow">

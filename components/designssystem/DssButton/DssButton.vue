@@ -30,6 +30,10 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  fullWidth: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const button = tv({
@@ -38,9 +42,14 @@ const button = tv({
       true: "rounded-full",
       false: "",
     },
+    fullWidth: {
+      true: "w-full",
+      false: "",
+    },
     size: {
       sm: "h-8",
       md: "h-10",
+      lg: "h-12",
     },
     variant: {
       primary: "bg-indigo-500 hover:bg-indigo-600 text-white",
@@ -56,17 +65,24 @@ const button = tv({
   },
 });
 const classes = computed(() =>
-  button({ variant: props.variant, size: props.size, rounded: props.rounded })
+  button({
+    variant: props.variant,
+    size: props.size,
+    rounded: props.rounded,
+    fullWidth: props.fullWidth,
+  })
 );
 </script>
 <template>
   <button class="btn" :class="classes">
     <DssButtonLoading v-if="loading" />
-    <DssIcon v-if="preppendIcon" :icon="preppendIcon" />
-    <slot></slot>
-    <span v-if="text" class="mx-1"> {{ text }}</span>
-    <span v-if="preppendText" class="text-slate-400 dark:text-slate-500">{{
-      preppendText
-    }}</span>
+    <div v-else>
+      <DssIcon v-if="preppendIcon" :icon="preppendIcon" />
+      <slot></slot>
+      <span v-if="text" class="mx-1"> {{ text }}</span>
+      <span v-if="preppendText" class="text-slate-400 dark:text-slate-500">{{
+        preppendText
+      }}</span>
+    </div>
   </button>
 </template>

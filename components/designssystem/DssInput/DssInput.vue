@@ -26,6 +26,10 @@ const props = defineProps({
     type: String,
     default: "md",
   },
+  type: {
+    type: String,
+    default: "text",
+  },
 });
 
 const emit = defineEmits(["update:modelValue", "keyup:escape", "keyup:enter"]);
@@ -54,10 +58,13 @@ const button = tv({
     size: {
       sm: "h-8",
       md: "h-10",
+      lg: "h-12 text-base",
     },
   },
 });
 const classes = computed(() => button({ size: props.size }));
+
+const wtf = "8";
 </script>
 <template>
   <div>
@@ -66,8 +73,9 @@ const classes = computed(() => button({ size: props.size }));
     }}</label>
     <input
       ref="dssinputRef"
-      class="form-input h-10 w-full bg-white dark:bg-slate-800"
-      :class="{ '!border-rose-500': errorMessage }"
+      :type="type"
+      class="form-input w-full bg-white dark:bg-slate-800"
+      :class="[{ '!border-rose-500': errorMessage }, classes]"
       :placeholder="placeholder"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"

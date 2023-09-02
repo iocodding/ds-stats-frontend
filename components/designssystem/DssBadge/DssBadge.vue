@@ -1,6 +1,17 @@
 <script setup>
 import { tv } from "tailwind-variants";
 
+const props = defineProps({
+  text: {
+    type: String,
+    default: "",
+  },
+  color: {
+    type: String,
+    default: "success",
+  },
+});
+
 const chip = tv({
   variants: {
     color: {
@@ -14,17 +25,6 @@ const chip = tv({
       danger:
         "bg-rose-100 dark:bg-rose-500/30 text-rose-500 dark:text-rose-400",
     },
-  },
-});
-
-const props = defineProps({
-  text: {
-    type: String,
-    default: "",
-  },
-  color: {
-    type: String,
-    default: "success",
   },
 });
 </script>

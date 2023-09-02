@@ -22,45 +22,6 @@
               class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-4"
             >
               <!-- Avatars -->
-              <div class="flex shrink-0 -space-x-3 -ml-px">
-                <a class="block" href="#0">
-                  <img
-                    class="rounded-full border-2 border-slate-100 dark:border-slate-900 box-content"
-                    src="../../images/user-32-08.jpg"
-                    width="32"
-                    height="32"
-                    alt="User 08"
-                  />
-                </a>
-                <a class="block" href="#0">
-                  <img
-                    class="rounded-full border-2 border-slate-100 dark:border-slate-900 box-content"
-                    src="../../images/user-32-07.jpg"
-                    width="32"
-                    height="32"
-                    alt="User 07"
-                  />
-                </a>
-                <a class="block" href="#0">
-                  <img
-                    class="rounded-full border-2 border-slate-100 dark:border-slate-900 box-content"
-                    src="../../images/user-32-05.jpg"
-                    width="32"
-                    height="32"
-                    alt="User 05"
-                  />
-                </a>
-                <button
-                  class="flex justify-center items-center w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-indigo-500 shadow-sm transition duration-150 ml-2"
-                >
-                  <span class="sr-only">Add new user</span>
-                  <svg class="w-3 h-3 fill-current" viewBox="0 0 12 12">
-                    <path
-                      d="M11 5H7V1a1 1 0 0 0-2 0v4H1a1 1 0 0 0 0 2h4v4a1 1 0 0 0 2 0V7h4a1 1 0 0 0 0-2Z"
-                    />
-                  </svg>
-                </button>
-              </div>
 
               <!-- Add taks button -->
               <button class="btn bg-indigo-500 hover:bg-indigo-600 text-white">
@@ -317,26 +278,7 @@
                     <!-- Right side -->
                     <div class="flex items-center justify-end space-x-3">
                       <!-- Avatars -->
-                      <div class="flex shrink-0 -space-x-3 -ml-px">
-                        <a class="block" href="#0">
-                          <img
-                            class="rounded-full border-2 border-white dark:border-slate-800 box-content"
-                            src="../../images/user-32-08.jpg"
-                            width="24"
-                            height="24"
-                            alt="User 08"
-                          />
-                        </a>
-                        <a class="block" href="#0">
-                          <img
-                            class="rounded-full border-2 border-white dark:border-slate-800 box-content"
-                            src="../../images/user-32-07.jpg"
-                            width="24"
-                            height="24"
-                            alt="User 07"
-                          />
-                        </a>
-                      </div>
+
                       <!-- Replies button -->
                       <button
                         class="flex items-center text-slate-400 dark:text-slate-500 hover:text-indigo-500 dark:hover:text-indigo-500"
@@ -699,17 +641,7 @@
                     <!-- Right side -->
                     <div class="flex items-center justify-end space-x-3">
                       <!-- Avatars -->
-                      <div class="flex shrink-0 -space-x-3 -ml-px">
-                        <a class="block" href="#0">
-                          <img
-                            class="rounded-full border-2 border-white dark:border-slate-800 box-content"
-                            src="../../images/user-32-08.jpg"
-                            width="24"
-                            height="24"
-                            alt="User 08"
-                          />
-                        </a>
-                      </div>
+
                       <!-- To-do info -->
                       <div
                         class="flex items-center text-slate-400 dark:text-slate-500 ml-3"
@@ -783,26 +715,7 @@
                     <!-- Right side -->
                     <div class="flex items-center justify-end space-x-3">
                       <!-- Avatars -->
-                      <div class="flex shrink-0 -space-x-3 -ml-px">
-                        <a class="block" href="#0">
-                          <img
-                            class="rounded-full border-2 border-white dark:border-slate-800 box-content"
-                            src="../../images/user-32-08.jpg"
-                            width="24"
-                            height="24"
-                            alt="User 08"
-                          />
-                        </a>
-                        <a class="block" href="#0">
-                          <img
-                            class="rounded-full border-2 border-white dark:border-slate-800 box-content"
-                            src="../../images/user-32-07.jpg"
-                            width="24"
-                            height="24"
-                            alt="User 07"
-                          />
-                        </a>
-                      </div>
+
                       <!-- To-do info -->
                       <div
                         class="flex items-center text-slate-400 dark:text-slate-500 ml-3"
