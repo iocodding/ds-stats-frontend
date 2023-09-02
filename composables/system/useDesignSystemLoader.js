@@ -5,7 +5,7 @@ export const useDesignSystemLoader = ({ id }) => {
   const state = useQuery({
     queryKey: ["design-system"],
     queryFn: () =>
-      axios.call("get", `http://localhost:1337/api/design-systems/${id}?populate=*`),
+      axios.call("get", `https://dssspecs-backend-ibiz5.ondigitalocean.app/api/design-systems/${id}?populate=*`),
     select: (res) => {      
       return res.data.data
     }

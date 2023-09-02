@@ -5,7 +5,7 @@ export const useFeatureTanLoader = () => {
   const state = useQuery({
     queryKey: ["features"],
     queryFn: () =>
-      axios.call("get", "http://localhost:1337/api/features?populate=*"),
+      axios.call("get", "https://dssspecs-backend-ibiz5.ondigitalocean.app/api/features?populate=*"),
       select: (res) => {      
         return res.data.data
       }

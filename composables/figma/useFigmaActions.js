@@ -9,7 +9,7 @@ export function useFigmaActions() {
     loading,
     updateFigmaRecourse(component) {
       loading.value = true
-      const promise = axios.put(`http://localhost:1337/api/figma-files/${component.id}`, { data: component }).then(() => {
+      const promise = axios.put(`https://dssspecs-backend-ibiz5.ondigitalocean.app/api/figma-files/${component.id}`, { data: component }).then(() => {
         queryClient.invalidateQueries({ queryKey: ['components'] })
       }).finally(() => {
         loading.value = false
