@@ -45,37 +45,10 @@
           <ul class="mt-3">
             <!-- Dashboard -->
             <SidebarLinkGroup
-              to="/designsystem/components/dssbuttonpage"
-              name="DssButton"
-              :activeCondition="
-                route.fullPath.includes(
-                  '/designsystem/components/dssbuttonpage'
-                )
-              "
-            >
-              <DssIconFigma />
-            </SidebarLinkGroup>
-            <SidebarLinkGroup
-              to="/designsystem/components/dsschippage"
-              name="DssChip"
-              :activeCondition="
-                route.fullPath.includes('/designsystem/components/dsschippage')
-              "
-            >
-              <DssIconFigma />
-            </SidebarLinkGroup>
-            <SidebarLinkGroup
-              name="DssBadge"
-              to="/designsystem"
-              :activeCondition="route.fullPath.includes('vadge')"
-            >
-              <DssIconFigma />
-            </SidebarLinkGroup>
-
-            <SidebarLinkGroup
-              to="/designsystem"
-              name="DssDialog"
-              :activeCondition="route.fullPath.includes('setup')"
+              v-for="page in pages"
+              :to="`/designsystem/components${page.link}`"
+              :name="page.name"
+              :activeCondition="route.fullPath.includes(page.link)"
             >
               <DssIconFigma />
             </SidebarLinkGroup>
@@ -107,10 +80,35 @@
 
 <script setup>
 const route = useRoute();
-</script>
-<script>
-export default {
-  name: "Sidebar",
-  props: ["sidebarOpen"],
-};
+
+const pages = [
+  {
+    name: "DssAlert",
+    link: "/dssalertpage",
+  },
+  {
+    name: "DssButton",
+    link: "/dssbuttonpage",
+  },
+  {
+    name: "DssCard (Todo)",
+    link: "/dsscardpage",
+  },
+  {
+    name: "DssChip",
+    link: "/dsschippage",
+  },
+  {
+    name: "DssInput (Todo)",
+    link: "/dssinputpage",
+  },
+  {
+    name: "DssTextarea",
+    link: "/dsstextareapage",
+  },
+  {
+    name: "DssDropdown (Todo)",
+    link: "/dssdropdownpage",
+  },
+];
 </script>

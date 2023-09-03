@@ -63,8 +63,6 @@ const button = tv({
   },
 });
 const classes = computed(() => button({ size: props.size }));
-
-const wtf = "8";
 </script>
 <template>
   <div>

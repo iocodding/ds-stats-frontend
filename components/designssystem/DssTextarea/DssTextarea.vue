@@ -1,4 +1,6 @@
 <script setup>
+import { tv } from "tailwind-variants";
+
 const props = defineProps({
   modelValue: {
     type: String,
@@ -12,7 +14,26 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  errorMessage: {
+    type: String,
+    default: null,
+  },
+  size: {
+    type: String,
+    default: "md",
+  },
 });
+
+const button = tv({
+  variants: {
+    size: {
+      sm: "text-xs",
+      md: "",
+      lg: "text-base",
+    },
+  },
+});
+const classes = computed(() => button({ size: props.size }));
 </script>
 
 <template>
@@ -25,8 +46,12 @@ const props = defineProps({
       @input="$emit('update:modelValue', $event.target.value)"
       id="notes"
       class="form-textarea w-full focus:border-slate-300"
+      :class="[{ '!border-rose-500': errorMessage }, classes]"
       rows="4"
       :placeholder="placeholder"
-    ></textarea>
+    />
+    <div v-if="errorMessage" class="text-xs mt-1 text-rose-500">
+      {{ errorMessage }}
+    </div>
   </div>
 </template>
