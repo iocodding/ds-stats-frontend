@@ -9,7 +9,7 @@ export function useFeatureTanActions() {
     loading,
     createFeature(component) {
       loading.value = true
-      const promise = axios.post(`http://dssspecs-backend-ibiz5.ondigitalocean.app/api/features`, { data:  component }).then(() => {
+      const promise = axios.post(`https://dssspecs-backend-ibiz5.ondigitalocean.app/api/features`, { data:  component }).then(() => {
         queryClient.invalidateQueries({ queryKey: ['features'] })
       }).finally(() => {
         loading.value = false
@@ -17,14 +17,14 @@ export function useFeatureTanActions() {
       return promise;
     },
     deleteComponent(component) {
-      const promise = axios.delete(`http://dssspecs-backend-ibiz5.ondigitalocean.app/api/components/${component.id}`).then(() => {
+      const promise = axios.delete(`https://dssspecs-backend-ibiz5.ondigitalocean.app/api/components/${component.id}`).then(() => {
         queryClient.invalidateQueries({ queryKey: ['features'] })
       })
       return promise;
     },
     updateFeature(component) {
       loading.value = true
-      const promise = axios.put(`http://dssspecs-backend-ibiz5.ondigitalocean.app/api/components/${component.id}`, { data: component }).then(() => {
+      const promise = axios.put(`https://dssspecs-backend-ibiz5.ondigitalocean.app/api/components/${component.id}`, { data: component }).then(() => {
         queryClient.invalidateQueries({ queryKey: ['features'] })
       }).finally(() => {
         loading.value = false

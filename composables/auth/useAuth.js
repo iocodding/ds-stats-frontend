@@ -12,7 +12,7 @@ export const useAuth = () => {
     };
 
     const login = async (body) => {
-        const data = await $fetch("http://dssspecs-backend-ibiz5.ondigitalocean.app/api/auth/local", {
+        const data = await $fetch("https://dssspecs-backend-ibiz5.ondigitalocean.app/api/auth/local", {
             method: "POST",
             body,
         });
@@ -23,7 +23,7 @@ export const useAuth = () => {
     };
 
     const register = async (body) => {
-        const data = await $fetch("http://dssspecs-backend-ibiz5.ondigitalocean.app/api/auth/local/register", {
+        const data = await $fetch("https://dssspecs-backend-ibiz5.ondigitalocean.app/api/auth/local/register", {
             method: "POST",
             body
         });
