@@ -5,16 +5,8 @@ const pages = [
     to: "/components",
   },
   {
-    name: "Tokens",
-    to: "/components/tokens",
-  },
-  {
     name: "Contributions",
     to: "/components/gallery",
-  },
-  {
-    name: "Picker",
-    to: "/components/picker",
   },
   {
     name: "Figma",
