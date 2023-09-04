@@ -1,7 +1,7 @@
 <script setup>
-// definePageMeta({
-//   middleware: ["is-admin-middleware"],
-// });
+definePageMeta({
+  middleware: ["is-admin-middleware"],
+});
 </script>
 <template>
   <NuxtLayout>

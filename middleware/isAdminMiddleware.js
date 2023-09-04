@@ -1,9 +1,11 @@
+
+import { storeToRefs } from "pinia";
+
 export default defineNuxtRouteMiddleware(async () => {
-    const isAdmin = useAdmin();
-    console.log({ process:process.server})
-    if (!isAdmin.value)  {
-        console.log('navigateTo({ name: "login" })')
-        return navigateTo({ name: "login" })
+    const store = useStore();
+    const { user } = storeToRefs(store);
+    
+    if (!user.value.auth) {
+        return navigateTo({ name: "login" });
     }
-    return abortNavigation();
 });

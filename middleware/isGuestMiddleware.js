@@ -1,8 +1,11 @@
+
+import { storeToRefs } from "pinia";
+
 export default defineNuxtRouteMiddleware(async () => {
-    const user = useAuthUser();
+    const store = useStore();
+    const { user } = storeToRefs(store);
     
-    if (user.value) {
-        console.log(user)
-         return navigateTo({ name: "index" });
+    if (user.value.auth) {
+        return navigateTo({ name: "index" });
     }
 });

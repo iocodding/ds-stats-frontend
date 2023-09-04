@@ -25,4 +25,8 @@
   </main>
 </template>
 
-<script setup></script>
+<script setup>
+definePageMeta({
+  middleware: ["is-admin-middleware"],
+});
+</script>

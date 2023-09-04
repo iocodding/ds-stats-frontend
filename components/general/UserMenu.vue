@@ -50,28 +50,27 @@
             Administrator
           </div>
         </div>
-        <!-- <ul
+        <ul
           ref="dropdown"
           @focusin="dropdownOpen = true"
           @focusout="dropdownOpen = false"
         >
-          <li>
+          <!-- <li>
             <router-link
               class="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3"
               to="/settings/account"
               @click="dropdownOpen = false"
               >Settings</router-link
             >
-          </li>
+          </li> -->
           <li>
-            <router-link
-              class="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3"
-              to="/signin"
-              @click="dropdownOpen = false"
-              >Sign Out</router-link
+            <a
+              @click="signOut"
+              class="font-medium text-sm text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center py-1 px-3 cursor-pointer"
+              >Sign Out</a
             >
           </li>
-        </ul> -->
+        </ul>
       </div>
     </transition>
   </div>
@@ -88,6 +87,7 @@ export default {
     const dropdownOpen = ref(false);
     const trigger = ref(null);
     const dropdown = ref(null);
+    const { logout } = useAuth();
 
     // close on click outside
     const clickHandler = ({ target }) => {
@@ -116,10 +116,18 @@ export default {
       document.removeEventListener("keydown", keyHandler);
     });
 
+    function signOut() {
+      dropdownOpen.value = false;
+      logout().then(() => {
+        navigateTo("/login");
+      });
+    }
+
     return {
       dropdownOpen,
       trigger,
       dropdown,
+      signOut,
     };
   },
 };

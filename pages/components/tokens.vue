@@ -1,4 +1,8 @@
-<script setup></script>
+<script setup>
+definePageMeta({
+  middleware: ["is-admin-middleware"],
+});
+</script>
 <template>
   <div class="flex gap-2">
     <DssButton variant="primary" preppendIcon="fa-add" text="Add" />

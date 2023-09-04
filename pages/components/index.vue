@@ -1,4 +1,7 @@
 <script setup>
+definePageMeta({
+  middleware: ["is-admin-middleware"],
+});
 const {
   isSuccess,
   isFetching,

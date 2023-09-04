@@ -1,4 +1,8 @@
 <script setup>
+definePageMeta({
+  middleware: ["is-admin-middleware"],
+});
+
 const route = useRoute();
 
 const {

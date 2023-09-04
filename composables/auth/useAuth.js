@@ -1,67 +1,46 @@
-import { useAuthUser } from "./useAuthUser";
+import { storeToRefs } from "pinia";
 
 export const useAuth = () => {
-    const authUser = useAuthUser();
+    const config = useRuntimeConfig();
 
-    const setUser = (user) => {
-        authUser.value = user;
-    };
+    const store = useStore();
+    const { user } = storeToRefs(store);
 
-    const setCookie = (cookie) => {
-        cookie.value = cookie;
-    };
+
 
     const login = async (body) => {
-        const data = await $fetch("${config.public.API_BASE_URL}/api/auth/local", {
+        const data = await $fetch(`${config.public.API_BASE_URL}/api/auth/local`, {
             method: "POST",
             body,
         });
-
-        setUser(data.user);
-
-        return authUser;
+        
+        user.value = {auth: true, ...data.user }
+        return data.user;
     };
 
     const register = async (body) => {
-        const data = await $fetch("${config.public.API_BASE_URL}/api/auth/local/register", {
+        const data = await $fetch(`${config.public.API_BASE_URL}/api/auth/local/register`, {
             method: "POST",
             body
         });
 
-        setUser(data.user);
-
-        return authUser;
+        // setUser(data.user);
+        return data.user;
     };
 
 
     const logout = async () => {
-        const data = await $fetch("/auth/logout", {
-            method: "POST",
-        });
+        // const data = await $fetch("/auth/logout", {
+        //     method: "POST",
+        // });
 
-        setUser(data.user);
+        user.value = { auth: false }
     };
 
-    const me = async () => {
-        if (!authUser.value) {
-            try {
-                const data = await $fetch("/auth/me", {
-                    headers: useRequestHeaders(["cookie"]),
-                });
-
-                setUser(data.user);
-            } catch (error) {
-                setCookie(null);
-            }
-        }
-
-        return authUser;
-    };
 
     return {
         login,
         register,
         logout,
-        me,
     };
 };

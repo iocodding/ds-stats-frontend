@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex h-[100dvh] overflow-hidden font-inter antialiased bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400"
+    class="flex h-[100dvh] overflow-hidden font-inter antialiased bg-slate-100 text-slate-600 dark:text-slate-400"
   >
     <div
       class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden"

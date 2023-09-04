@@ -1,22 +1,7 @@
 <script setup>
-const items = ref([
-  {
-    id: 0,
-    name: "Attlasian Design System",
-    link: "#0",
-    location: "Team A",
-    content:
-      "Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.",
-  },
-  {
-    id: 1,
-    name: "Twillio Design System",
-    link: "#0",
-    location: "Team C",
-    content:
-      "Fitness Fanatic, Design Enthusiast, Mentor, Meetup Organizer & PHP Lover.",
-  },
-]);
+definePageMeta({
+  middleware: ["is-admin-middleware"],
+});
 
 const { data: systems } = useDesignSystemsLoader();
 </script>

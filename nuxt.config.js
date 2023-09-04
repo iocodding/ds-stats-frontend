@@ -3,7 +3,9 @@ export default defineNuxtConfig({
   css: ["@/assets/css/main.css", '@fortawesome/fontawesome-svg-core/styles.css'],
   modules: [
     '@vueuse/nuxt',
-    '@pinia/nuxt'
+    '@pinia/nuxt',
+    "@pinia-plugin-persistedstate/nuxt",
+    
   ],
   runtimeConfig: {
     public: {
@@ -33,7 +35,8 @@ export default defineNuxtConfig({
       // ... or scan modules nested one level deep with a specific name and file extension
       'composables/*/index.{ts,js,mjs,mts}',
       // ... or scan all modules within given directory
-      'composables/**'
+      'composables/**',
+      'stores'
     ]
   },
 
