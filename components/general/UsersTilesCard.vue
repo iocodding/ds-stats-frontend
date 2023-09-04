@@ -4,7 +4,7 @@
   >
     <img
       v-if="item.coverImage"
-      :src="`https://dssspecs-backend-ibiz5.ondigitalocean.app${item.coverImage.url}`"
+      :src="`${config.public.API_BASE_URL}${item.coverImage.url}`"
     />
     <div class="flex flex-col h-full">
       <!-- Card top -->

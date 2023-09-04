@@ -3,7 +3,8 @@ import { useFetch } from '@vueuse/core'
 export const useFeaturesLoader = () => {
 
 
-    const state = useFetch('https://dssspecs-backend-ibiz5.ondigitalocean.app/api/features/2?populate=*')
+    const state = useFetch('${config.public.API_BASE_URL}/api/features/2?populate=*')
+    const config = useRuntimeConfig();
 
     function normalize(data, optimistic) {
         if (data) {

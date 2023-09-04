@@ -2,10 +2,12 @@ import { useQuery } from "@tanstack/vue-query";
 import axios from "axios";
 
 export const useComponentsOptionsLoader = ({component}) => {
+  const config = useRuntimeConfig();
+
   const state = useQuery({
     queryKey: ["component-options"],
     queryFn: () =>
-      axios.call("get", `https://dssspecs-backend-ibiz5.ondigitalocean.app/api/component-options?populate=deep&filters[component][id]=${component.id}`),
+      axios.call("get", `${config.public.API_BASE_URL}/api/component-options?populate=deep&filters[component][id]=${component.id}`),
       select: (res) => {      
         return res.data.data
      }
