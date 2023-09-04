@@ -14,10 +14,14 @@ const emit = defineEmits(["close"]);
 </script>
 <template>
   <WidgetDialog
+    widthClass="max-w-3xl"
     :modalOpen="open"
-    title="Create Featuress"
+    title="Add Components"
     @close="emit('close')"
   >
-    <FeatureAddEditDialogPanel @close="emit('close')" :selected="selected" />
+    <FeatureSectionComponentAddEditDialogPanel
+      @close="emit('close')"
+      :selected="selected"
+    />
   </WidgetDialog>
 </template>

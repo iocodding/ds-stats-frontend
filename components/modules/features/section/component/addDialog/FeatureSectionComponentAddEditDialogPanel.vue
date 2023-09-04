@@ -1,6 +1,4 @@
 <script setup>
-import { useFeatureAddEditRules } from "./useFeatureAddEditRules.js";
-
 const props = defineProps({
   selected: {
     type: Object,
@@ -19,8 +17,10 @@ const componentPhasesOptions = [
   { id: 3, name: "Done" },
 ];
 
-const { v } = useFeatureAddEditRules({ name: componentName });
 const { createFeature, updateFeature, loading } = useFeatureTanActions();
+const { data: options, isLoading } = useComponentsOptionsLoader({
+  component: { id: 36 },
+});
 
 function onSubmit() {
   const body = {
@@ -31,16 +31,9 @@ function onSubmit() {
       emit("close");
     });
   } else {
-    createFeature(body).then(() => {
+    updateFeature(body).then(() => {
       emit("close");
     });
-  }
-}
-
-function validate() {
-  v.value.$touch();
-  if (!v.value.$error) {
-    onSubmit();
   }
 }
 </script>
@@ -49,18 +42,12 @@ function validate() {
   <WidgetDialogPanel
     :loading="loading"
     cancelButtonText="Cancel"
-    saveButtonText="Create Feature"
+    saveButtonText="Add Component"
     @close="emit('close')"
     @submit="validate"
   >
     <div class="flex flex-col gap-2">
-      <DssInput
-        v-model="componentName"
-        autofocus
-        placeholder="ex: Clients table"
-        label="Name *"
-        :errorMessage="v.name.$errors[0]?.$message"
-      />
+      <DssList />
     </div>
   </WidgetDialogPanel>
 </template>

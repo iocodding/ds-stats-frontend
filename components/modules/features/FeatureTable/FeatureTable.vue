@@ -1,5 +1,9 @@
 <script setup>
 const { data: features } = useFeatureTanLoader();
+const { deleteFeature } = useFeatureActions();
+function onDeleteFeature(feature) {
+  deleteFeature({ id: feature.id });
+}
 </script>
 <template>
   <main class="grow">
@@ -20,7 +24,19 @@ const { data: features } = useFeatureTanLoader();
           <DssButton @click="$emit('onAddFeature')" text="Add feature" />
         </div>
 
-        <DssListTable :items="features" />
+        <DssListTable :items="features">
+          <template #append="{ item }">
+            <DropdownEditMenu align="right" class="relative inline-flex ml-2">
+              <li>
+                <a
+                  class="font-medium text-sm text-rose-500 hover:text-rose-600 flex py-1 px-3 cursor-pointer"
+                  @click="onDeleteFeature(item)"
+                  >Delete</a
+                >
+              </li>
+            </DropdownEditMenu>
+          </template>
+        </DssListTable>
       </div>
     </div>
   </main>

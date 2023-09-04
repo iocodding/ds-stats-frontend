@@ -8,6 +8,10 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  checked: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const emit = defineEmits(["update:modelValue"]);
@@ -17,6 +21,7 @@ const emit = defineEmits(["update:modelValue"]);
     <input
       type="checkbox"
       :value="modelValue"
+      :checked="checked"
       @input="$emit('update:modelValue', $event.target.value)"
       class="form-checkbox"
     />

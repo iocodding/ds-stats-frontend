@@ -42,13 +42,11 @@ function onSubmit() {
   <WidgetDialogPanel
     :loading="loading"
     cancelButtonText="Cancel"
-    saveButtonText="Add Component"
+    saveButtonText="Update variants"
     @close="emit('close')"
     @submit="validate"
   >
     <div class="flex flex-col gap-2">
-      <WidgetComponentPicker class="mb-4" />
-
       <PlaygroundInputsForm :options="options" v-if="!isLoading" />
     </div>
   </WidgetDialogPanel>

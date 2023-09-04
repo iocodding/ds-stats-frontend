@@ -18,16 +18,6 @@ const isEditMode = ref(!!props.selected);
 const componentName = ref(props.selected?.name);
 const componentVersion = ref(props.selected?.version || "1.0.0");
 const componentNotes = ref(props.selected?.notes);
-const selectedSection = ref(0);
-
-const componentSectionOptions = props.system.design_system_sections.map(
-  (section) => {
-    return {
-      id: section.id,
-      value: section.name,
-    };
-  }
-);
 
 const { v } = useComponentAddEditRules({ name: componentName });
 const { createComponent, updateComponent, loading } = useComponentActions();
@@ -41,12 +31,6 @@ function onSubmit() {
     notes: componentNotes.value,
     design_system: route.params.id || 1,
   };
-
-  console.log();
-  if (componentSectionOptions[selectedSection.value]) {
-    body.design_system_section =
-      componentSectionOptions[selectedSection.value].id;
-  }
 
   if (isEditMode.value) {
     updateComponent({ ...body, id: props.selected.id }).then(() => {
@@ -85,22 +69,16 @@ function validate() {
       />
       <DssInput
         v-model="componentVersion"
-        autofocus
         placeholder="ex: 2.11.22"
         label="Version *"
         :errorMessage="v.name.$errors[0]?.$message"
       />
-      <DssSelect
-        v-model="selectedSection"
-        label="Section"
-        :options="componentSectionOptions"
-      />
+
       <DssTextarea
         v-model="componentNotes"
         label="Notes"
         placeholder="Write a note"
       />
-      <!-- <DssSwitch label="Stable" @click="open" /> -->
     </div>
   </WidgetDialogPanel>
 </template>

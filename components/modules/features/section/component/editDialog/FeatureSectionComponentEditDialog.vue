@@ -14,12 +14,12 @@ const emit = defineEmits(["close"]);
 </script>
 <template>
   <WidgetDialog
-    widthClass="max-w-2xl"
+    widthClass="max-w-3xl"
     :modalOpen="open"
-    title="Add Component"
+    title="Update component vatiants"
     @close="emit('close')"
   >
-    <FeatureSectionComponentAddEditDialogPanel
+    <FeatureSectionComponentEditDialogPanel
       @close="emit('close')"
       :selected="selected"
     />

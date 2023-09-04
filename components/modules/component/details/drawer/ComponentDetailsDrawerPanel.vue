@@ -14,10 +14,6 @@ const pages = [
     id: 2,
     name: "Playground",
   },
-  {
-    id: 4,
-    name: "Contributions",
-  },
 ];
 const activePage = ref(1);
 </script>

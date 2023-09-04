@@ -4,14 +4,10 @@ const pages = [
     name: "Components",
     to: "/components",
   },
-  {
-    name: "Contributions",
-    to: "/components/gallery",
-  },
-  {
-    name: "Figma",
-    to: "/components/figmaapi",
-  },
+  // {
+  //   name: "Contributions",
+  //   to: "/components/gallery",
+  // },
 ];
 </script>
 <template>
@@ -28,7 +24,7 @@ const pages = [
           </div>
         </div>
 
-        <DssTabs :items="pages" />
+        <!-- <DssTabs :items="pages" /> -->
         <NuxtPage />
       </div>
     </main>

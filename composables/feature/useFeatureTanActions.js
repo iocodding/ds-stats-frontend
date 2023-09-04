@@ -8,9 +8,9 @@ export function useFeatureTanActions() {
   const loading = ref(false);
   return {
     loading,
-    createFeature(component) {
+    createFeature(feature) {
       loading.value = true
-      const promise = axios.post(`${config.public.API_BASE_URL}/api/features`, { data:  component }).then(() => {
+      const promise = axios.post(`${config.public.API_BASE_URL}/api/features`, { data:  feature }).then(() => {
         queryClient.invalidateQueries({ queryKey: ['features'] })
       }).finally(() => {
         loading.value = false

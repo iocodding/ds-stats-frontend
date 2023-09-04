@@ -73,6 +73,7 @@ const props = defineProps({
           </tr>
         </tbody>
       </table>
+      <slot name="append"></slot>
     </div>
   </div>
 </template>

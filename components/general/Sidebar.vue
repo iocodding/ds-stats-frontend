@@ -83,7 +83,7 @@
         <div>
           <ul class="mt-3">
             <!-- Dashboard -->
-            <SidebarLinkGroup
+            <!-- <SidebarLinkGroup
               to="/"
               name="Dashboard"
               :activeCondition="route.fullPath === '/'"
@@ -117,7 +117,7 @@
                   d="M12 15c-1.654 0-3-1.346-3-3 0-.462.113-.894.3-1.285L6 6l4.714 3.301A2.973 2.973 0 0112 9c1.654 0 3 1.346 3 3s-1.346 3-3 3z"
                 />
               </svg>
-            </SidebarLinkGroup>
+            </SidebarLinkGroup> -->
             <SidebarLinkGroup
               to="/systems"
               name="Community"
@@ -141,41 +141,6 @@
                       : 'text-slate-400'
                   "
                   d="M12 6a3 3 0 110-6 3 3 0 010 6zm2 18h-4a1 1 0 01-1-1v-6H6v-6a3 3 0 013-3h6a3 3 0 013 3v6h-3v6a1 1 0 01-1 1z"
-                />
-              </svg>
-            </SidebarLinkGroup>
-            <SidebarLinkGroup
-              name="Design System"
-              to="/components"
-              :activeCondition="route.fullPath.includes('components')"
-            >
-              <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                <path
-                  class="fill-current"
-                  :class="
-                    route.fullPath.includes('components')
-                      ? 'text-indigo-300'
-                      : 'text-slate-400'
-                  "
-                  d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z"
-                />
-                <path
-                  class="fill-current"
-                  :class="
-                    route.fullPath.includes('components')
-                      ? 'text-indigo-600'
-                      : 'text-slate-700'
-                  "
-                  d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z"
-                />
-                <path
-                  class="fill-current"
-                  :class="
-                    route.fullPath.includes('components')
-                      ? 'text-indigo-500'
-                      : 'text-slate-600'
-                  "
-                  d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z"
                 />
               </svg>
             </SidebarLinkGroup>
@@ -214,6 +179,43 @@
                 />
               </svg>
             </SidebarLinkGroup>
+
+            <SidebarLinkGroup
+              name="Design System"
+              to="/components"
+              :activeCondition="route.fullPath.includes('components')"
+            >
+              <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
+                <path
+                  class="fill-current"
+                  :class="
+                    route.fullPath.includes('components')
+                      ? 'text-indigo-300'
+                      : 'text-slate-400'
+                  "
+                  d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z"
+                />
+                <path
+                  class="fill-current"
+                  :class="
+                    route.fullPath.includes('components')
+                      ? 'text-indigo-600'
+                      : 'text-slate-700'
+                  "
+                  d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z"
+                />
+                <path
+                  class="fill-current"
+                  :class="
+                    route.fullPath.includes('components')
+                      ? 'text-indigo-500'
+                      : 'text-slate-600'
+                  "
+                  d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z"
+                />
+              </svg>
+            </SidebarLinkGroup>
+
             <!-- <SidebarLinkGroup
               to="/feature"
               name="Feature"
@@ -241,15 +243,15 @@
               </svg>
             </SidebarLinkGroup> -->
             <SidebarLinkGroup
-              to="/setup"
-              name="Setup"
-              :activeCondition="route.fullPath.includes('setup')"
+              to="/figmaapi"
+              name="Figma Sync"
+              :activeCondition="route.fullPath.includes('figmaapi')"
             >
               <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                 <path
                   class="fill-current"
                   :class="
-                    route.fullPath.includes('setup')
+                    route.fullPath.includes('figmaapi')
                       ? 'text-indigo-500'
                       : 'text-slate-600'
                   "
@@ -258,7 +260,7 @@
                 <path
                   class="fill-current"
                   :class="
-                    route.fullPath.includes('setup')
+                    route.fullPath.includes('figmaapi')
                       ? 'text-indigo-300'
                       : 'text-slate-400'
                   "
@@ -267,7 +269,7 @@
                 <path
                   class="fill-current"
                   :class="
-                    route.fullPath.includes('setup')
+                    route.fullPath.includes('figmaapi')
                       ? 'text-indigo-500'
                       : 'text-slate-600'
                   "
@@ -276,7 +278,7 @@
                 <path
                   class="fill-current"
                   :class="
-                    route.fullPath.includes('setup')
+                    route.fullPath.includes('figmaapi')
                       ? 'text-indigo-300'
                       : 'text-slate-400'
                   "

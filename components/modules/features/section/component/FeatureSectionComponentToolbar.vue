@@ -12,8 +12,7 @@
     <div
       class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2"
     >
-      <DssInput placeholder="Search by invoice ID…" />
-      <DssButton @click="$emit('onCreate')" text="Add Component" />
+      <DssButton @click="$emit('onCreate')" text="Manage Component" />
     </div>
   </div>
 </template>

@@ -9,16 +9,16 @@ const columns = [
     val: "name",
   },
   {
-    name: "Section",
-    val: "design_system_section",
+    name: "Reference",
+    val: "figma_component",
+  },
+  {
+    name: "Status",
+    val: "version",
   },
   {
     name: "Version",
     val: "version",
-  },
-  {
-    name: "Created at",
-    val: "createdAt",
   },
   {
     name: "Menu",
@@ -45,13 +45,19 @@ const columns = [
         </div>
         <span
           @click="$emit('onManage', item)"
-          class="cursor-pointer hover:underline"
+          class="cursor-pointer hover:underline text-base"
           >{{ item.name }}</span
         >
       </div>
     </template>
-    <template #design_system_section="{ item }">
-      <span>{{ item.design_system_section?.name }}</span>
+    <template #figma_component="{ item }">
+      <DssButton
+        class="-ml-3"
+        variant="tertiary-secondary"
+        size="sm"
+        preppendIcon="fa-link"
+        text="Add Design Reference"
+      />
     </template>
     <template #menu="{ item }">
       <div class="flex gap-2">
@@ -74,6 +80,9 @@ const columns = [
         </DropdownEditMenu>
       </div>
     </template>
+    <template #append>
+      <ComponentTableAdd />
+    </template>
   </DssTable>
-  <DssTablePagination />
+  <!-- <DssTablePagination /> -->
 </template>
