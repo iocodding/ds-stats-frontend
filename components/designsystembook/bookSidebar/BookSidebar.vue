@@ -15,7 +15,7 @@
       :class="sidebarOpen ? 'translate-x-0' : '-translate-x-64'"
     >
       <!-- Sidebar header -->
-      <div class="flex justify-between mb-10 pr-3 sm:px-2">
+      <div class="flex justify-between mb-4 pr-3 sm:px-2">
         <!-- Close button -->
         <button
           ref="trigger"
@@ -38,12 +38,30 @@
         <!-- Logo -->
       </div>
 
+      <div class="flex gap-5 mb-2 ml-2">
+        <div
+          class="w-9 h-9 hover:bg-slate-300/20 rounded-full cursor-pointer flex items-center justify-center bg-indigo-500/30"
+        >
+          <img src="/Atoms.svg" class="w-6" />
+        </div>
+        <div
+          class="w-9 h-9 hover:bg-slate-300/20 rounded-full cursor-pointer flex items-center justify-center"
+        >
+          <img src="/Molecules.svg" class="w-6" />
+        </div>
+        <div
+          class="w-9 h-9 hover:bg-slate-300/20 rounded-full cursor-pointer flex items-center justify-center"
+        >
+          <img src="/Organisms.svg" class="w-6" />
+        </div>
+      </div>
       <!-- Links -->
       <div class="space-y-8">
         <!-- Pages group -->
         <div>
           <ul class="mt-3">
             <!-- Dashboard -->
+
             <SidebarLinkGroup
               v-for="page in pages"
               :to="`/designsystem/components${page.link}`"
@@ -90,10 +108,6 @@ const pages = [
     name: "DssButton",
     link: "/dssbuttonpage",
   },
-  // {
-  //   name: "DssCard (Todo)",
-  //   link: "/dsscardpage",
-  // },
   {
     name: "DssChip",
     link: "/dsschippage",
@@ -106,10 +120,6 @@ const pages = [
     name: "DssTextarea",
     link: "/dsstextareapage",
   },
-  // {
-  //   name: "DssDropdown (Todo)",
-  //   link: "/dssdropdownpage",
-  // },
   {
     name: "DssSpinner",
     link: "/dssspinnerpage",

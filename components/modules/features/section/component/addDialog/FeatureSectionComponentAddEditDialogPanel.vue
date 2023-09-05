@@ -47,7 +47,7 @@ function onSubmit() {
     @submit="validate"
   >
     <div class="flex flex-col gap-2">
-      <DssList />
+      <DssList> asd </DssList>
     </div>
   </WidgetDialogPanel>
 </template>
