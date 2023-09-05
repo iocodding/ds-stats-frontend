@@ -2,7 +2,7 @@
 const props = defineProps({
   title: {
     type: String,
-    default: "Templates ✨",
+    default: "",
   },
   buttonText: {
     type: String,
@@ -15,6 +15,7 @@ const props = defineProps({
     <!-- Left: Title -->
     <div class="mb-4 sm:mb-0">
       <h1
+        v-if="title"
         class="text-2xl md:text-3xl text-slate-800 dark:text-slate-100 font-bold"
       >
         {{ title }}

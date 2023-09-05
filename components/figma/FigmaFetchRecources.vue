@@ -4,8 +4,13 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  components: {
+    type: Array,
+    default: () => [],
+  },
 });
 const figmaComponents = [{ name: "Hello" }];
+const isComponentsDialogOpen = ref(false);
 const columns = [
   {
     name: "File",
@@ -42,8 +47,12 @@ const columns = [
       <span class="text-lg font-semibold"> Design system stats </span>
     </template>
     <template #components="{ item }">
-      <div class="flex gap-2 items-center">
-        <DssIconFigma /> <span class="text-xl font-semibold">15</span>
+      <div
+        class="flex gap-2 items-center"
+        @click="isComponentsDialogOpen = true"
+      >
+        <DssIconFigma />
+        <span class="text-xl font-semibold">{{ components.length }}</span>
       </div>
     </template>
     <template #tokens="{ item }">
@@ -58,10 +67,15 @@ const columns = [
     <template #sync>
       <DssButton
         :loading="loading"
-        @click="$emit('onSync')"
+        @click="isComponentsDialogOpen = true"
         variant="secondary"
         text="Sync "
       />
     </template>
   </DssTable>
+  <FigmaFetchComponentsDialog
+    :components="components"
+    :open="isComponentsDialogOpen"
+    @close="isComponentsDialogOpen = false"
+  />
 </template>

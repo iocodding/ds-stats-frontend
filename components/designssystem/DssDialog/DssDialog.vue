@@ -37,7 +37,9 @@
         <!-- Modal header -->
         <div class="px-5 py-3 border-b border-slate-200 dark:border-slate-700">
           <div class="flex justify-between items-center">
-            <div class="font-semibold text-slate-800 dark:text-slate-100">
+            <div
+              class="font-semibold text-slate-800 dark:text-slate-100 text-lg"
+            >
               {{ title }}
             </div>
             <button

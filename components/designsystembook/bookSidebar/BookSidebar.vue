@@ -90,10 +90,10 @@ const pages = [
     name: "DssButton",
     link: "/dssbuttonpage",
   },
-  {
-    name: "DssCard (Todo)",
-    link: "/dsscardpage",
-  },
+  // {
+  //   name: "DssCard (Todo)",
+  //   link: "/dsscardpage",
+  // },
   {
     name: "DssChip",
     link: "/dsschippage",
@@ -106,9 +106,13 @@ const pages = [
     name: "DssTextarea",
     link: "/dsstextareapage",
   },
+  // {
+  //   name: "DssDropdown (Todo)",
+  //   link: "/dssdropdownpage",
+  // },
   {
-    name: "DssDropdown (Todo)",
-    link: "/dssdropdownpage",
+    name: "DssSpinner",
+    link: "/dssspinnerpage",
   },
 ];
 </script>

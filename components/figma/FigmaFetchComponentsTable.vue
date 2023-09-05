@@ -16,31 +16,8 @@ const columns = [
     val: "options",
   },
 ];
-
-const { updateFigmaRecourse, loading } = useFigmaActions();
-
-function updateRecourse() {
-  const recourse = {
-    id: 1,
-    components: JSON.parse(JSON.stringify(props.figmaComponents)),
-  };
-  updateFigmaRecourse(recourse);
-}
-
-console.log(props.figmaComponents);
 </script>
 <template>
-  <div class="flex justify-between">
-    <div></div>
-    <DssButton
-      :loading="loading"
-      variant="secondary"
-      text="Update Recourse"
-      @click="updateRecourse"
-    />
-  </div>
-  <!-- {{ JSON.parse(JSON.stringify(figmaComponents)) }} -->
-
   <DssTable
     title="Components"
     :columns="columns"
