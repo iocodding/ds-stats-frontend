@@ -39,40 +39,25 @@
       </div>
 
       <div class="flex gap-5 mb-2 ml-2">
-        <div
-          class="w-9 h-9 hover:bg-slate-300/20 rounded-full cursor-pointer flex items-center justify-center bg-indigo-500/30"
-        >
-          <img src="/Atoms.svg" class="w-6" />
-        </div>
-        <div
-          class="w-9 h-9 hover:bg-slate-300/20 rounded-full cursor-pointer flex items-center justify-center"
-        >
-          <img src="/Molecules.svg" class="w-6" />
-        </div>
-        <div
-          class="w-9 h-9 hover:bg-slate-300/20 rounded-full cursor-pointer flex items-center justify-center"
-        >
-          <img src="/Organisms.svg" class="w-6" />
-        </div>
+        <BookSidebarTab
+          img="/Atoms.svg"
+          :active="activePage === 'atoms'"
+          @click="activePage = 'atoms'"
+        />
+        <BookSidebarTab
+          img="/Molecules.svg"
+          :active="activePage === 'molecules'"
+          @click="activePage = 'molecules'"
+        />
+        <BookSidebarTab
+          img="/Organisms.svg"
+          :active="activePage === 'organisms'"
+          @click="activePage = 'organisms'"
+        />
       </div>
-      <!-- Links -->
-      <div class="space-y-8">
-        <!-- Pages group -->
-        <div>
-          <ul class="mt-3">
-            <!-- Dashboard -->
-
-            <SidebarLinkGroup
-              v-for="page in pages"
-              :to="`/designsystem/components${page.link}`"
-              :name="page.name"
-              :activeCondition="route.fullPath.includes(page.link)"
-            >
-              <DssIconFigma />
-            </SidebarLinkGroup>
-          </ul>
-        </div>
-      </div>
+      <BookSidebarAtoms v-if="activePage === 'atoms'" />
+      <BookSidebarMolecules v-if="activePage === 'molecules'" />
+      <BookSidebarOrganisms v-if="activePage === 'organisms'" />
 
       <!-- Expand / collapse button -->
       <div class="pt-3 hidden lg:inline-flex 2xl:hidden justify-end mt-auto">
@@ -97,32 +82,5 @@
 </template>
 
 <script setup>
-const route = useRoute();
-
-const pages = [
-  {
-    name: "DssAlert",
-    link: "/dssalertpage",
-  },
-  {
-    name: "DssButton",
-    link: "/dssbuttonpage",
-  },
-  {
-    name: "DssChip",
-    link: "/dsschippage",
-  },
-  {
-    name: "DssInput (Todo)",
-    link: "/dssinputpage",
-  },
-  {
-    name: "DssTextarea",
-    link: "/dsstextareapage",
-  },
-  {
-    name: "DssSpinner",
-    link: "/dssspinnerpage",
-  },
-];
+const activePage = ref("atoms");
 </script>
