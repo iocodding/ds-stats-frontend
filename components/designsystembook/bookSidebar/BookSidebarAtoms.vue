@@ -37,7 +37,7 @@ const pages = [
   },
   {
     name: "TipTap",
-    link: "/tiptap",
+    link: "/dsstiptappage",
   },
 ];
 </script>

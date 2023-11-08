@@ -216,16 +216,16 @@
               </svg>
             </SidebarLinkGroup>
 
-            <!-- <SidebarLinkGroup
-              to="/feature"
-              name="Feature"
-              :activeCondition="route.fullPath.includes('feature')"
+            <SidebarLinkGroup
+              to="/people"
+              name="People"
+              :activeCondition="route.fullPath.includes('people')"
             >
               <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
                 <path
                   class="fill-current"
                   :class="
-                    route.fullPath.includes('feature')
+                    route.fullPath.includes('people')
                       ? 'text-indigo-500'
                       : 'text-slate-600'
                   "
@@ -234,14 +234,14 @@
                 <path
                   class="fill-current"
                   :class="
-                    route.fullPath.includes('feature')
+                    route.fullPath.includes('people')
                       ? 'text-indigo-300'
                       : 'text-slate-400'
                   "
                   d="M17 23a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 4 4 0 004-4 1 1 0 012 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1zM7 13a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 110-2 4 4 0 004-4 1 1 0 112 0 4 4 0 004 4 1 1 0 010 2 4 4 0 00-4 4 1 1 0 01-1 1z"
                 />
               </svg>
-            </SidebarLinkGroup> -->
+            </SidebarLinkGroup>
             <SidebarLinkGroup
               to="/figmaapi"
               name="Figma Sync"
